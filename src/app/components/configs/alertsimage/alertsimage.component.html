@@ -1,0 +1,308 @@
+<!-- Container-fluid starts -->
+<div class="container-fluid">
+  <div class="row" style="margin-top:1%">
+
+    <div class="col-xl-3 col-sm-6" style="cursor:pointer" (click)="neweventstoday('Today',1)">
+      <div class="card className"  tabindex="0" [ngClass]="communication === 1 ? 'selectedCard' : 'todays'" style="margin: 15px;">
+        <div class="card-body" style="padding:5px">
+          <div class="media">
+            <i class="fa fa-edit"></i>
+            <h5 class="mb-0">Today</h5>
+          </div>
+          <div class="project-widgets text-center">
+            <h1 style="color: #093b56"> {{alertdata[0].today}} </h1>
+            <!-- <h6 class="mb-0">Proposals</h6> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6"    style="cursor:pointer" (click)="neweventActive('Active',2)">
+      <div class="card className" tabindex="0"  [ngClass]="communication === 2 ? 'selectedCard' : 'active'" style=" margin: 15px;">
+        <div class="card-body " style="padding:5px">
+          <div class="media">
+              <i class="fa fa-edit"></i>
+
+            <h5 class="mb-0">Active</h5>
+          </div>
+          <div class="project-widgets text-center">
+            <h1 style="color: #093b56"> {{alertdata[0].proactivecount}} </h1>
+            <!-- <h6 class="mb-0">Proposals</h6> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6  " style="cursor:pointer" (click)="newevent('Open',3)">
+      <div class="card className"   tabindex="0" [ngClass]="communication === 3 ? 'selectedCard' : 'open'" style="margin:15px;">
+        <div class="card-body" style="padding:5px">
+          <div class="media">
+            <i class="fa fa-edit"></i>
+            <h5 class="mb-0">Open</h5>
+          </div>
+          <div class="project-widgets text-center">
+            <h1 style="color: #093b56"> {{alertdata[0].active}} </h1>
+            <!-- <h6 class="mb-0">Open</h6> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6"  style="cursor:pointer" (click)="newevents('Close',4)">
+      <div class="card className"  tabindex="0" [ngClass]="communication === 4 ? 'selectedCard' : 'close'" style="margin:15px;    width: -webkit-fill-available;   ">
+        <div class="card-body" style="padding:5px">
+          <div class="media">
+            <i class="fa fa-edit"></i>
+            <h5 class="mb-0">Close</h5>
+          </div>
+          <div class="project-widgets text-center">
+            <h1 style="color: #093b56"> {{alertdata[0].deactive}} </h1>
+            <!-- <h6 class="mb-0">Proposals</h6> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="col-xl-12 xl-1000 col-lg-12">
+
+      <div class="card" style="    background-color: antiquewhite;">
+
+
+
+        <!-- <h5 class="pull-left">Select Shape</h5> -->
+
+
+
+
+        <!-- [ngClass]="{'Tabcolor1':activeTab == 'Today','Tabcolor2':activeTab == 'Active','Tabcolor3':activeTab == 'Open','Tabcolor4':activeTab == 'Close'}" -->
+
+
+
+
+        <div class="card-body">
+          <ngb-tabset #t="ngbTabset" class="nav-success" style="    background-color: antiquewhite;">
+            <ngb-tab id="tab-selectbyid1" style="    background-color: antiquewhite;">
+              <ng-template ngbTabTitle
+                class="nav"><i class="icofont icofont-document-folder"></i>
+                {{activeTab}}
+              </ng-template>
+              <ng-template ngbTabContent>
+
+
+                <div class="container-fluid" style="    background-color: #616573;">
+
+                  <!-- <div class="border">
+                  <button class="btn btn-md btn-outline-primary" (click)="open(content)" >
+                    <i class="fa fa-user"></i>Add Shape Properties</button>
+                </div> -->
+
+                  <nav class="navbar">
+
+                  </nav>
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term" style="background-color: #c3bcbc;
+                  ">
+                  </div>
+                  <table class="table table-bordered table-striped">
+                    <thead style=" background-color: black;">
+                      <tr>
+                        <!-- <th style="width: 100px;">ID</th> -->
+                        <th>Date Time</th>
+                        <th>Parameter</th>
+                        <th>Tag Name</th>
+                        <th>Alert Type</th>
+                        <th>Alert Message</th>
+                        <th>Trigger Point</th>
+                        <th>Severity</th>
+                        <th>Ack(Yes/No)</th>
+
+
+                        <th>Action</th>
+
+
+
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr *ngFor="let items of Emps   | filter:term  |paginate: { itemsPerPage: 7, currentPage: p }">
+                        <!-- <td><span>{{items.id}}</span></td> -->
+                        <td><span>{{items.created_on}}</span></td>
+                        <td><span>{{items.property}}</span></td>
+                        <td><span>{{items.description}}</span></td>
+                        <td><span>{{items.alertname}}</span></td>
+                        <td><span>{{items.alertmsg}}</span></td>
+                        <td><span>{{items.alertval}}</span></td>
+                        <td><span>{{items.severity}}</span></td>
+                        <td><span>{{items.status}}</span></td>
+
+
+
+
+                        <td>
+                          <!-- <button class="btn btn-sm btn-info" (click)="openDetails(contentDeatils, items)">
+                          <i class="fa fa-search"></i>Details</button> -->
+                          <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, items)">
+                            <i class="fa fa-edit"></i>Resolve</button>
+                          <!-- <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, items)">
+                          <i class="fa fa-remove"></i>Delete</button> -->
+                        </td>
+                      </tr>
+                    </tbody>
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                  </table>
+                </div>
+
+
+
+
+
+                <div class="newdev">
+
+                  <ng-template #contentEdit let-modal>
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="modal-basic-title2">Resolve</h4>
+                      <button type="button" class="close" aria-label="Close" style="color:white"
+                        (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body" style="background:white">
+
+                      <form [formGroup]="editForm" novalidate>
+
+                        <div class="form-row">
+
+                          <div class="form-group col-md-3 col-sm-6 col-xs-6">
+                            <label for="property">Name</label>
+                            <div class="input-group">
+                              <input formControlName="property" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group col-md-3 col-sm-6 col-xs-6">
+                            <label for="description">Tag Name </label>
+                            <div class="input-group">
+                              <input formControlName="description" class="form-control">
+                              <!-- <input id="templatename" class="form-control" > -->
+                            </div>
+                          </div>
+                          <div class="form-group col-md-3 col-sm-6 col-xs-6">
+                            <label for="alertmsg">Description</label>
+                            <div class="input-group">
+                              <input formControlName="alertmsg" class="form-control">
+                            </div>
+                          </div>
+
+                          <div class="form-group col-md-3 col-sm-6 col-xs-6 col-6">
+                            <label for="alertval">Trigger Value</label>
+                            <div class="input-group">
+                              <input formControlName="alertval" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-row">
+                          <!-- <div class="form-group col-md-3 col-sm-6 col-xs-6 col-6">
+                  <label for="status">status</label>
+                  <div class="input-group">
+                    <input formControlName="status" class="form-control">
+                  </div>
+                </div> -->
+                          <div class="form-group col-md-3 col-sm-6 col-xs-6 col-6">
+                            <label for="severity">Severity</label>
+                            <div class="input-group">
+                              <input formControlName="severity" class="form-control">
+                            </div>
+                          </div>
+
+
+
+                          <div class="form-group col-md-3 col-sm-6 col-xs-6 col-6">
+                            <label for="created_on">Created_on</label>
+                            <div class="input-group">
+                              <input formControlName="created_on" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group col-md-3 col-sm-6 col-xs-6 col-6">
+                            <label for="status">Ack/NoN-Ack</label>
+                            <select formControlName="status" id="status" class="form-control">
+                              <option *ngFor="let options of optionalert" [value]="options">{{options}}</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-3 col-sm-6 col-xs-6 col-6">
+                            <label for="remark">Remark</label>
+                            <div class="input-group">
+                              <input formControlName="remark" class="form-control">
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label for="recomendation">Recommendation</label>
+                            <div class="input-group">
+                              <input formControlName="recomendation" class="form-control">
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="card">
+
+                          <div>
+                            <canvas class="paths" id="canvas"
+                              [style.backgroundImage]="'url(\'' + backgroundImgSrc+ '\')'"
+                              (click)="getPosition1($event)"></canvas>
+                          </div>
+
+                        </div>
+
+
+
+
+
+                        <div class=" text-center" style="float:right"> <button data-dismiss="modal"
+                            class="btn btn btn-outline-success" (click)="onSave()">Submit</button> </div>
+                      </form>
+                    </div>
+
+                  </ng-template>
+
+                </div>
+
+                <ng-template #contentDelete let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title">Confirm Delete</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <h2>Are you sure you want to delete this record.</h2>
+                    <div class="border text-center">
+                      <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Yes, Delete!</button>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark"
+                      (click)="modal.close('Save click')">Cancel</button>
+                  </div>
+
+
+
+
+                </ng-template>
+
+              </ng-template>
+            </ngb-tab>
+
+          </ngb-tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Container-fluid Ends -->

@@ -1,0 +1,557 @@
+<!-- Container-fluid starts -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-xl-12 xl-1000 col-lg-12">
+
+			<div class="card">
+
+
+
+					<!-- <h5 class="pull-left">Select Shape</h5> -->
+
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="row">
+                <div class="col-sm-4" style="  margin: 30px; font-weight: bold;">
+                  <label  >Select Machine :</label>
+                </div>
+                <div class="col-sm-4" style="      width: 200px;  margin: 30px;">
+                  <select style="    width: 200px;" name="selectedQuantity" id="aantal" (change)="changeProject(selectedQuantity)" class="form-control" [(ngModel)]="selectedQuantity">
+
+                    <option *ngFor="let option of options" [value]="option.name" >{{option.name}}</option>
+                    <div class='row' [ngSwitch]="selectedQuantity">
+                      <app-subthingshape [customTitle]="selectedQuantity" ></app-subthingshape>
+                                        </div>
+                </select>
+                </div>
+
+
+              </div>
+              <!-- <div class="form-group col-md-6">
+
+                <div class="col-sm-6">
+
+                </div>
+              </div> -->
+
+
+          </div>
+          <div class="col-sm-4"> </div>
+            <div class="col-sm-4">
+
+              <div class="card-header" style="    float: right;">
+                <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Add Thing</button>
+
+              </div>
+
+            </div>
+              <ng-template #mymodal let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">Add Machine</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+
+                  <label for="fname"><i class="fa fa-user"></i> Machine Name</label>
+                  <input type="text"
+                  required
+                  [(ngModel)]="Shapename" name="Shapename">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-dark" (click)="postshape()"(click)="modal.close('Save click')">Save</button>
+                </div>
+              </ng-template>
+          </div>
+				<div class="card-body">
+					<ngb-tabset #t="ngbTabset" class="nav-success">
+						<ngb-tab id="tab-selectbyid1">
+							<ng-template ngbTabTitle class="nav"><i class="icofont icofont-document-folder"></i>Properties
+							</ng-template>
+							<ng-template ngbTabContent>
+
+
+              <div class="container-fluid">
+
+                <div class="border">
+                  <button class="btn btn-md btn-outline-primary" (click)="open(content)" >
+                    <i class="fa fa-user"></i>Add Machine Properties</button>
+                </div>
+
+                <nav class="navbar">
+
+                </nav>
+                <div class="form-group col-md-6">
+                  <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+              </div>
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>alarm</th>
+                      <th>operator</th>
+                      <th>msg</th>
+                      <th>property</th>
+                      <th>Type</th>
+                      <th>units</th>
+                      <th>description</th>
+                      <!-- <th>machinetemplateid</th> -->
+                      <th>parttemplateid</th>
+                      <th>realtimeval</th>
+                      <th>thresholdvalue</th>
+                      <th>Action</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr *ngFor="let items of Emps   | filter:term  |paginate: { itemsPerPage: 6, currentPage: p }">
+                      <td><span>{{items.id}}</span></td>
+                      <td><span>{{items.name}}</span></td>
+                      <td><span>{{items.alarm}}</span></td>
+                      <td><span>{{items.operator}}</span></td>
+                      <td><span>{{items.msg}}</span></td>
+                      <td><span>{{items.property}}</span></td>
+                      <td><span>{{items.type}}</span></td>
+                      <td><span>{{items.units}}</span></td>
+                      <td><span>{{items.description}}</span></td>
+                      <!-- <td><span>{{items.machinetemplateid}}</span></td> -->
+                      <td><span>{{items.parttemplateid}}</span></td>
+                      <td><span>{{items.realtimeval}}</span></td>
+                      <td><span>{{items.thresholdvalue}}</span></td>
+
+
+                      <td>
+                        <button class="btn btn-sm btn-info" (click)="openDetails(contentDeatils, items)">
+                          <i class="fa fa-search"></i>Details</button>
+                        <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, items)">
+                          <i class="fa fa-edit"></i>Edit</button>
+                        <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, items)">
+                          <i class="fa fa-remove"></i>Delete</button>
+                      </td>
+                    </tr>
+                    </tbody>
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                  </table>
+                </div>
+
+
+
+              <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">New Thing</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+
+                      <!-- <div class="input-group">
+                        <input id="name" name="name" class="form-control" ngModel>
+                      </div> -->
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="name">Name</label>
+                      <div class="input-group">
+                        <input id="name" [(ngModel)]="selectedQuantity" name="name" class="form-control" ngModel readonly>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="type">type</label>
+                      <div class="input-group">
+                        <input id="type" name="type" class="form-control" ngModel>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="alarm">Alert </label>
+                      <div class="input-group">
+                        <input id="alarm" name="alarm" class="form-control" ngModel>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="operator">operator</label>
+                      <div class="input-group">
+                        <input id="operator" name="operator" class="form-control" ngModel>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="msg">msg</label>
+                      <div class="input-group">
+                        <input id="msg" name="msg" class="form-control" ngModel>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="property">property</label>
+                      <div class="input-group">
+                        <input id="property" name="property" class="form-control" ngModel>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                      <label for="units">units</label>
+                      <div class="input-group">
+                        <input id="units" name="units" class="form-control" ngModel>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="description">description</label>
+                      <div class="input-group">
+                        <input id="description" name="description" class="form-control" ngModel>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="realtimeval">realtimeval</label>
+                      <div class="input-group">
+                        <input id="realtimeval" name="realtimeval" class="form-control" ngModel>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="thresholdvalue">thresholdvalue</label>
+                      <div class="input-group">
+                        <input id="thresholdvalue" name="thresholdvalue" class="form-control" ngModel>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="border text-center">
+                      <button data-dismiss="modal" class="btn btn-info">Submit</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+
+                  <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+                </div>
+              </ng-template>
+
+
+
+              <ng-template #contentDeatils let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title1">Deatils</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+              <form>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="name">Name</label>
+                  <div class="input-group">
+                    <input id="name" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="alarm">alarm</label>
+                  <div class="input-group">
+                    <input id="alarm" class="form-control" readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="operator">operator</label>
+                  <div class="input-group">
+                    <input id="operator" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="msg" >msg</label>
+                  <div class="input-group">
+                    <input id="msg" class="form-control" readonly>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="property" >property</label>
+                  <div class="input-group">
+                    <input id="property" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="type" >type</label>
+                  <div class="input-group">
+                    <input id="type" class="form-control" readonly>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="units" >Units</label>
+                  <div class="input-group">
+                    <input id="units" class="form-control" readonly>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="description" >description</label>
+                  <div class="input-group">
+                    <input id="description" class="form-control" readonly>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="property" >property</label>
+                  <div class="input-group">
+                    <input id="property" class="form-control" readonly>
+                  </div>
+                </div>
+
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="machinetemplateid" >machinetemplateid</label>
+                    <div class="input-group">
+                      <input id="machinetemplateid" class="form-control" readonly>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="parttemplateid" >parttemplateid</label>
+                    <div class="input-group">
+                      <input id="parttemplateid" class="form-control" readonly>
+                    </div>
+                  </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="realtimeval" >realtimeval</label>
+                      <div class="input-group">
+                        <input id="realtimeval" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="thresholdvalue" >thresholdvalue</label>
+                      <div class="input-group">
+                        <input id="thresholdvalue" class="form-control" readonly>
+                      </div>
+                    </div>
+                    </div>
+
+
+              </form>
+                </div>
+                <div class="modal-footer">
+
+                  <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+                </div>
+              </ng-template>
+
+
+              <ng-template #contentEdit let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title2">Edit</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+                  <form [formGroup]="editForm" novalidate  >
+
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="name">Name</label>
+                  <div class="input-group">
+                    <input formControlName="name" class="form-control">
+
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="alarm">alarm</label>
+                  <div class="input-group">
+                    <input formControlName="alarm" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="operator">operator</label>
+                  <div class="input-group">
+                    <input formControlName="operator" class="form-control">
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="type">type</label>
+                  <div class="input-group">
+                    <input formControlName="type" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="msg">msg</label>
+                  <div class="input-group">
+                    <input formControlName="msg" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="property">property</label>
+                  <div class="input-group">
+                    <input formControlName="property" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="units">units</label>
+                  <div class="input-group">
+                    <input formControlName="units" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="description">description</label>
+                  <div class="input-group">
+                    <input formControlName="description" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="machinetemplateid">machinetemplateid</label>
+                  <div class="input-group">
+                    <input formControlName="machinetemplateid" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="parttemplateid">parttemplateid</label>
+                  <div class="input-group">
+                    <input formControlName="parttemplateid" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="realtimeval">realtimeval</label>
+                  <div class="input-group">
+                    <input formControlName="realtimeval" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="thresholdvalue">thresholdvalue</label>
+                  <div class="input-group">
+                    <input formControlName="thresholdvalue" class="form-control">
+                  </div>
+                </div>
+              </div>
+                <div class="border text-center"> <button data-dismiss="modal" class="btn btn-info" (click)="onSave()">Save Changes</button> </div>
+              </form>
+                </div>
+                <div class="modal-footer">
+
+                  <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+                </div>
+              </ng-template>
+              <ng-template #contentDelete let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title">Confirm Delete</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <h2>Are you sure you want to delete this record.</h2>
+                  <div class="border text-center">
+                    <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Yes, Delete!</button>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+                </div>
+              </ng-template>
+
+							</ng-template>
+						</ngb-tab>
+						<ngb-tab id="tab-selectbyid2">
+							<ng-template ngbTabTitle class="nav"><i class="icofont-server"></i>Shape
+							</ng-template>
+							<ng-template ngbTabContent>
+								<div class="card-body">
+                  <form class="needs-validation" novalidate>
+                      <div class="form-row">
+                          <div class="col-md-4 mb-3">
+                              <label for="validationCustom01">Shape Name</label>
+                              <input type="text"
+                              required readonly
+                              [(ngModel)]="selectedQuantity" name="selectedQuantity">
+
+                          </div>
+
+                      </div>
+<div class="row" >
+
+
+
+  <div class="column">
+    <div >
+      <h4>Drag &</h4>
+      <div cdkDropList #moviesList="cdkDropList" [cdkDropListData]="MoviesList"
+        [cdkDropListConnectedTo]="[doneMovieList]" class="movie-list" (cdkDropListDropped)="onDrop($event)">
+        <div class="movie-block" *ngFor="let moviesList of MoviesList" cdkDrag>{{moviesList}}</div>
+      </div>
+
+    </div>
+  </div>
+  <div class="column">
+    <div >
+      <h4> Drop Required tiles</h4>
+    <div cdkDropList #doneMovieList="cdkDropList" [cdkDropListData]="MoviesWatched"
+      [cdkDropListConnectedTo]="[moviesList]" class="movie-list" (cdkDropListDropped)="onDrop($event)">
+      <div class="movie-block" *ngFor="let moviesWatched of MoviesWatched" cdkDrag>{{moviesWatched}}</div>
+    </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+                      <button class="btn btn-primary" (click)="shapesSubmit()" type="submit">Submit
+                          form</button>
+
+                  </form>
+              </div>
+							</ng-template>
+						</ngb-tab>
+
+					</ngb-tabset>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Container-fluid Ends -->

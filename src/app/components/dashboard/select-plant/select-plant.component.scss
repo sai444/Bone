@@ -1,0 +1,86 @@
+// #map {
+//   height: 50vh;
+//   width: 10h;
+//   margin: auto;
+// }
+
+#mapid { height: 180px; }
+
+
+.dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-red {
+  background-color: rgb(241, 37, 37);
+}
+.dot-green {
+  background-color: rgb(127, 243, 127);
+}
+.dot-yellow {
+  background-color: yellow;
+}
+
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0e2e69;
+  color: white;
+}
+
+
+#customers1 {
+
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers1 td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers1 tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers1 tr:hover {background-color: #ddd;}
+
+#customers1 th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+

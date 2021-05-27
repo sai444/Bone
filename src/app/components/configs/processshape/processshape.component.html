@@ -1,0 +1,368 @@
+<!-- Container-fluid starts -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-xl-12 xl-1000 col-lg-12">
+
+			<div class="card">
+
+
+
+					<!-- <h5 class="pull-left">Select Shape</h5> -->
+
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="row">
+                <div class="col-sm-4" style="  margin: 30px; font-weight: bold;">
+                  <label  >Select Shape :</label>
+                </div>
+                <div class="col-sm-4" style="    margin: 30px;">
+                  <select style="    width: 200px;" name="selectedQuantity" id="aantal" (change)="changeProject(selectedQuantity)" class="form-control" [(ngModel)]="selectedQuantity">
+
+                    <option *ngFor="let option of options" [value]="option.name" >{{option.name}}</option>
+                    <div class='row' [ngSwitch]="selectedQuantity">
+                      <app-subthingshape [customTitle]="selectedQuantity" ></app-subthingshape>
+                                        </div>
+                </select>
+                </div>
+
+
+              </div>
+              <!-- <div class="form-group">
+
+                <div class="col-sm-6">
+
+                </div>
+              </div> -->
+
+
+          </div>
+          <div class="col-sm-4"> </div>
+            <div class="col-sm-4">
+
+              <div class="card-header" style="    float: right;">
+                <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Add Shape</button>
+
+              </div>
+
+
+            </div>
+              <ng-template #mymodal let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">Add Shape</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+
+                  <label for="fname"><i class="fa fa-user"></i> Shape Name</label>
+                  <input type="text"
+                  required
+                  [(ngModel)]="Shapename" name="Shapename">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-dark" (click)="postshape()"(click)="modal.close('Save click')">Save</button>
+                </div>
+              </ng-template>
+
+
+          </div>
+
+
+
+
+
+
+
+				<div class="card-body">
+					<ngb-tabset #t="ngbTabset" class="nav-success">
+						<ngb-tab id="tab-selectbyid1">
+							<ng-template ngbTabTitle class="nav"><i class="icofont icofont-document-folder"></i>Properties
+							</ng-template>
+							<ng-template ngbTabContent>
+
+
+              <div class="container-fluid">
+
+                <div class="border">
+                  <button class="btn btn-md btn-outline-primary" (click)="open(content)" >
+                    <i class="fa fa-user"></i>Add Shape Properties</button>
+                </div>
+
+                <nav class="navbar">
+
+                </nav>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+              </div>
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Shape</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                      <th>Alert Name</th>
+                      <th>Alert Msg</th>
+                      <th>property</th>
+
+                      <th>Action</th>
+
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr *ngFor="let items of Emps   | filter:term  |paginate: { itemsPerPage: 6, currentPage: p }">
+                      <td><span>{{items.id}}</span></td>
+                      <td><span>{{items.name}}</span></td>
+                      <td><span>{{items.shape}}</span></td>
+                      <td><span>{{items.type}}</span></td>
+
+                      <td><span>{{items.des}}</span></td>
+                      <td><span>{{items.alertname}}</span></td>
+                      <td><span>{{items.alertmsg}}</span></td>
+                      <td><span>{{items.property}}</span></td>
+
+
+                      <td>
+                        <button class="btn btn-sm btn-info" (click)="openDetails(contentDeatils, items)">
+                          <i class="fa fa-search"></i>Details</button>
+                        <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, items)">
+                          <i class="fa fa-edit"></i>Edit</button>
+                        <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, items)">
+                          <i class="fa fa-remove"></i>Delete</button>
+                      </td>
+                    </tr>
+                    </tbody>
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                  </table>
+                </div>
+
+
+
+              <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">New Friend</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+                    <div class="form-group"  >
+                      <label for="name">Name</label>
+                      <div class="input-group">
+                        <input id="name" name="name" class="form-control" ngModel>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="shape">shape</label>
+                      <div class="input-group">
+                        <input id="shape"  [(ngModel)]="selectedQuantity" name="shape" class="form-control" ngModel readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="type">type</label>
+                      <div class="input-group">
+                        <input id="type" name="type" class="form-control" ngModel>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="des">des</label>
+                      <div class="input-group">
+                        <input id="des" name="des" class="form-control" ngModel>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="alertname">Alert Name</label>
+                      <div class="input-group">
+                        <input id="alertname" name="alertname" class="form-control" ngModel>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="alertmsg">Alert Msg</label>
+                      <div class="input-group">
+                        <input id="alertmsg" name="alertmsg" class="form-control" ngModel>
+                      </div>
+                    </div>
+
+                    <div class="border text-center">
+                      <button data-dismiss="modal" class="btn btn-info">Submit</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+
+                  <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+                </div>
+              </ng-template>
+
+
+
+              <ng-template #contentDeatils let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title1">Deatils</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+              <form>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <div class="input-group">
+                    <input id="name" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="shape">Shape</label>
+                  <div class="input-group">
+                    <input id="shape" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="type">Type</label>
+                  <div class="input-group">
+                    <input id="type" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>alertname</label>
+                  <div class="input-group">
+                    <input id="alertname" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Des</label>
+                  <div class="input-group">
+                    <input id="des" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label> alertmsg</label>
+                  <div class="input-group">
+                    <input id="alertmsg" class="form-control" readonly>
+                  </div>
+                </div>
+              </form>
+                </div>
+                <div class="modal-footer">
+
+                  <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+                </div>
+              </ng-template>
+
+
+              <ng-template #contentEdit let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title2">Edit</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+                  <form [formGroup]="editForm" novalidate  >
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <div class="input-group">
+                    <input formControlName="name" class="form-control">
+                    <input id="name" class="form-control" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="shape">Shape</label>
+                  <div class="input-group">
+                    <input formControlName="shape" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="des">Description</label>
+                  <div class="input-group">
+                    <input formControlName="des" class="form-control">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="type">type</label>
+                  <div class="input-group">
+                    <input formControlName="type" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="alertname">alertname</label>
+                  <div class="input-group">
+                    <input formControlName="alertname" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="alertmsg">Alert Msg</label>
+                  <div class="input-group">
+                    <input formControlName="alertmsg" class="form-control">
+                  </div>
+                </div>
+                <div class="border text-center"> <button data-dismiss="modal" class="btn btn-info" (click)="onSave()">Save Changes</button> </div>
+              </form>
+                </div>
+                <div class="modal-footer">
+
+                  <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+                </div>
+              </ng-template>
+              <ng-template #contentDelete let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title">Confirm Delete</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <h2>Are you sure you want to delete this record.</h2>
+                  <div class="border text-center">
+                    <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Yes, Delete!</button>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+                </div>
+              </ng-template>
+
+							</ng-template>
+						</ngb-tab>
+						<ngb-tab id="tab-selectbyid2">
+							<ng-template ngbTabTitle class="nav"><i class="icofont-server"></i>Shape
+							</ng-template>
+							<ng-template ngbTabContent>
+								<div class="card-body">
+                  <form class="needs-validation" novalidate>
+                      <div class="form-row">
+                          <div class="col-md-4 mb-3">
+                              <label for="validationCustom01">Shape Name</label>
+                              <input type="text"
+                              required readonly
+                              [(ngModel)]="selectedQuantity" name="selectedQuantity">
+
+                          </div>
+
+                      </div>
+
+                      <button class="btn btn-primary" [disabled]="!validationForm.valid" type="submit">Submit
+                          form</button>
+                  </form>
+              </div>
+							</ng-template>
+						</ngb-tab>
+
+					</ngb-tabset>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Container-fluid Ends -->

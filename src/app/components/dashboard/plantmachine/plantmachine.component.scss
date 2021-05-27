@@ -1,0 +1,25 @@
+// .card  :hover{
+//   transform  : scale(1.05);
+// box-shadow  : 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+// }
+
+.card {
+  box-shadow  : 0 0 10px 0 rgba(100, 100, 100, 0.26);
+}
+
+
+
+
+
+.card-absolute .card-body {
+  margin-top: 1px;
+}
+.card .card-body {
+  padding: 10px;
+  background-color: transparent;
+}
+col-sm {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 60%;
+}

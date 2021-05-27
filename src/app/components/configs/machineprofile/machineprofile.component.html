@@ -1,0 +1,646 @@
+<div class="col-sm-12">
+  <div class="card">
+    <!-- <div class="card-header">
+      <h5>Current Progress</h5>
+    </div> -->
+    <div class="card-body">
+      <div class="table-responsive current-progress">
+        <table class="table table-bordernone">
+          <tbody>
+            <tr>
+              <td>
+                <div class="d-inline-block align-middle"><img
+                    class="img-radius img-50 align-top m-r-15 rounded-circle"
+                    src="assets/images/user/1.jpg" alt="">
+                  <div class="d-inline-block">
+                    <h6>Select Machine</h6>
+                    <!-- <p>Design & development</p> -->
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect17">Plant</label>
+                  <select class="form-control input-air-primary digits"
+                      id="exampleFormControlSelect17">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                  </select>
+
+      </div>
+              </td>
+              <td>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect17">Line</label>
+                  <select class="form-control input-air-primary digits"
+                      id="exampleFormControlSelect17">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                  </select>
+
+      </div>
+              </td>
+              <td>
+
+
+                      <div class="form-group">
+                          <label >Machine</label>
+                          <select class="form-control input-air-primary digits"
+                              id="exampleFormControlSelect17">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                          </select>
+
+              </div>
+              </td>
+              <td>
+                <button class="btn btn-outline-success" type="button" placement="top"
+                ngbTooltip="btn btn-outline-success">Submit</button>
+
+                </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="user-profile social-app-profile">
+    <div class="row">
+      <div class="col-sm-12 social-app-tab">
+        <div class="card hovercard mb-0">
+          <div class="cardheader socialheader"></div>
+          <div class="user-image">
+
+            <div class="avatar"><img alt="" [src]="url? url:'assets/images/user/7.jpg'"></div>
+            <div class="icon-wrapper"><i class="icofont icofont-pencil-alt-5"><input class="upload" type="file"
+                  (change)="readUrl($event)" /></i></div>
+            <!-- <ul class="share-icons">
+              <li><a class="social-icon bg-primary"  href="javascript:void(0)"><i class="fa fa-smile-o"></i></a></li>
+              <li><a class="social-icon bg-secondary"  href="javascript:void(0)"><i class="fa fa-wechat"></i></a></li>
+              <li><a class="social-icon bg-warning"  href="javascript:void(0)"><i class="fa fa-share-alt"></i></a></li>
+            </ul> -->
+          </div>
+          <div class="info market-tabs p-0 ">
+            <div class="nav nav-tabs nav-material tabs-scoial" id="top-tab" role="tablist">
+              <ngb-tabset>
+                <ngb-tab>
+                  <ng-template ngbTabTitle class="nav-item">Timeline</ng-template>
+                  <ng-template ngbTabContent class="tab-content">
+                    <div class="tab-pane fade show" id="timeline" role="tabpanel" aria-labelledby="timeline">
+                      <div class="row">
+
+                        <div class="col-xl-12 xl-60 col-lg-12 col-md-7">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <div class="card">
+                                <div class="card-body">
+                                  <div class="new-users-social">
+                                    <div class="media"><img class="rounded-circle image-radius m-r-15"
+                                        src="assets/images/user/1.jpg" alt="">
+                                      <div class="media-body">
+                                        <h6 class="mb-0 f-w-700">ELANA</h6>
+                                        <p>January, 12,2019</p>
+                                      </div><span class="pull-right mt-0">
+                                        <app-feather-icons [icon]="'more-vertical'"></app-feather-icons>
+                                      </span>
+                                    </div>
+                                  </div><img class="img-fluid" alt="" src="assets/images/social-app/timeline-1.png">
+                                  <div class="timeline-content">
+                                    <p>
+                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed urna in
+                                      justo euismod condimentum. Fusce
+                                      placerat enim et odio molestie sagittis.
+                                    </p>
+                                    <div class="like-content"><span><i class="fa fa-heart font-danger"></i></span><span
+                                        class="pull-right comment-number"><span>20 </span><span><i
+                                            class="fa fa-share-alt mr-0"></i></span></span><span
+                                        class="pull-right comment-number"><span>10 </span><span><i
+                                            class="fa fa-comments-o"></i></span></span></div>
+                                    <div class="social-chat">
+                                      <div class="your-msg">
+                                        <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt=""
+                                            src="assets/images/user/1.jpg">
+                                          <div class="media-body"><span class="f-w-600">Jason Borne <span>1 Year Ago <i
+                                                  class="fa fa-reply font-primary"></i></span></span>
+                                            <p>we are working for the dance and sing songs. this car is very awesome for
+                                              the youngster. please vote this car and like our post</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="other-msg">
+                                        <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt=""
+                                            src="assets/images/user/2.png">
+                                          <div class="media-body"><span class="f-w-600">Alexendra Dhadio <span>1 Month
+                                                Ago <i class="fa fa-reply font-primary"></i></span></span>
+                                            <p>yes, really very awesome car i see the features of this car in the
+                                              official website of #Mercedes-Benz and really impressed :-)</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="other-msg">
+                                        <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt=""
+                                            src="assets/images/user/3.png">
+                                          <div class="media-body"><span class="f-w-600">Olivia Jon <span>15 Days Ago <i
+                                                  class="fa fa-reply font-primary"></i></span></span>
+                                            <p>i like lexus cars, lexus cars are most beautiful with the awesome
+                                              features, but this car is really outstanding than lexus</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="your-msg">
+                                        <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt=""
+                                            src="assets/images/user/1.jpg">
+                                          <div class="media-body"><span class="f-w-600">Issa Bell <span>1 Year Ago <i
+                                                  class="fa fa-reply font-primary"></i></span></span>
+                                            <p>we are working for the dance and sing songs. this car is very awesome for
+                                              the youngster. please vote this car and like our post</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="text-center"><a  href="javascript:void(0)">More Commnets</a></div>
+                                    </div>
+                                    <div class="comments-box">
+                                      <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt=""
+                                          src="assets/images/user/1.jpg">
+                                        <div class="media-body">
+                                          <div class="input-group text-box">
+                                            <input class="form-control input-txt-bx" id="message-to-send" type="text"
+                                              name="message-to-send" placeholder="Post Your commnets">
+                                            <div class="input-group-append">
+                                              <button class="btn btn-transparent" type="button"><i
+                                                  class="fa fa-smile-o"> </i></button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-12">
+                              <div class="card">
+                                <div class="card-body">
+                                  <div class="new-users-social">
+                                    <div class="media"><img class="rounded-circle image-radius m-r-15"
+                                        src="assets/images/user/1.jpg" alt="">
+                                      <div class="media-body">
+                                        <h6 class="mb-0 f-w-700">ELANA</h6>
+                                        <p>January, 12,2019</p>
+                                      </div><span class="pull-right mt-0">
+                                        <app-feather-icons [icon]="'more-vertical'"></app-feather-icons>
+                                      </span>
+                                    </div>
+                                  </div><img class="img-fluid" alt="" src="assets/images/social-app/timeline-2.png">
+                                  <div class="timeline-content">
+                                    <p>
+                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed urna in
+                                      justo euismod condimentum. Fusce
+                                      placerat enim et odio molestie sagittis.
+                                    </p>
+                                    <div class="like-content"><span><i class="fa fa-heart font-danger"></i></span><span
+                                        class="pull-right comment-number"><span>20 </span><span><i
+                                            class="fa fa-share-alt mr-0"></i></span></span><span
+                                        class="pull-right comment-number"><span>10 </span><span><i
+                                            class="fa fa-comments-o"></i></span></span></div>
+                                    <div class="social-chat">
+                                      <div class="your-msg">
+                                        <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt=""
+                                            src="assets/images/user/1.jpg">
+                                          <div class="media-body"><span class="f-w-600">Jason Borne <span>1 Year Ago <i
+                                                  class="fa fa-reply font-primary"></i></span></span>
+                                            <p>we are working for the dance and sing songs. this car is very awesome for
+                                              the youngster. please vote this car and like our post</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="your-msg">
+                                        <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt=""
+                                            src="assets/images/user/1.jpg">
+                                          <div class="media-body"><span class="f-w-600">Issa Bell <span>1 Year Ago <i
+                                                  class="fa fa-reply font-primary"></i></span></span>
+                                            <p>we are working for the dance and sing songs. this car is very awesome for
+                                              the youngster. please vote this car and like our post</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="text-center"><a  href="javascript:void(0)">More Commnets</a></div>
+                                    </div>
+                                    <div class="comments-box">
+                                      <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt=""
+                                          src="assets/images/user/1.jpg">
+                                        <div class="media-body">
+                                          <div class="input-group text-box">
+                                            <input class="form-control input-txt-bx" id="message-to-send" type="text"
+                                              name="message-to-send" placeholder="Post Your commnets">
+                                            <div class="input-group-append">
+                                              <button class="btn btn-transparent" type="button"><i
+                                                  class="fa fa-smile-o"> </i></button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </ng-template>
+                </ngb-tab>
+                <ngb-tab>
+                  <ng-template ngbTabTitle class="nav-item">About</ng-template>
+                  <ng-template ngbTabContent class="tab-content">
+                    <div class="tab-pane fade show" id="about" role="tabpanel" aria-labelledby="about">
+                      <div class="row">
+
+                        <div class="col-xl-12 xl-60 col-lg-12 col-md-7">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <div class="card">
+                                <div class="card-header">
+                                  <h5>Pepole You May Know</h5>
+                                </div>
+                                <div class="card-body avatar-showcase">
+                                  <div class="pepole-knows">
+                                    <ul>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/2.png"><span class="d-block f-w-600">Jason
+                                            Borne</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/3.png"><span class="d-block f-w-600">Anna
+                                            Mull</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/3.jpg"><span class="d-block f-w-600">Dion
+                                            Cast</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/4.jpg"><span class="d-block f-w-600">Karlene
+                                            Lex</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/8.jpg"><span class="d-block f-w-600">Vella
+                                            Chism</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/10.jpg"><span class="d-block f-w-600">Wai
+                                            Schalk</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/14.png"><span class="d-block f-w-600">Karlene
+                                            Lex</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-12">
+                              <div class="card">
+                                <div class="card-header social-header">
+                                  <h5>Hobbies and Interests<span class="pull-right">
+                                      <app-feather-icons [icon]="'more-vertical'"></app-feather-icons>
+                                    </span></h5>
+                                </div>
+                                <div class="card-body">
+                                  <div class="row details-about">
+                                    <div class="col-sm-6">
+                                      <div class="your-details"><span class="f-w-600">Hobbies:</span>
+                                        <p>I like to ride the bike to work, swimming, and working out. I also like
+                                          reading design magazines, go to museums, and binge watching a good tv show
+                                          while it’s raining outside.</p>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="your-details your-details-xs"><span class="f-w-600">Favourite Music
+                                          Bands / Artists:</span>
+                                        <p>Iron Maid, DC/AC, Megablow, The Ill, Kung Fighters, System of a Revenge.</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row details-about">
+                                    <div class="col-sm-6">
+                                      <div class="your-details"><span class="f-w-600">Favourite TV Shows:</span>
+                                        <p>Breaking Good, RedDevil, People of Interest, The Running Dead, Found,
+                                          American Guy.</p>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="your-details your-details-xs"><span class="f-w-600">Favourite
+                                          Books:</span>
+                                        <p>The Crime of the Century, Egiptian Mythology 101, The Scarred Wizard, Lord of
+                                          the Wings, Amongst Gods, The Oracle, A Tale of Air and Water.</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row details-about">
+                                    <div class="col-sm-6">
+                                      <div class="your-details"><span class="f-w-600">Favourite Movies:</span>
+                                        <p>Idiocratic, The Scarred Wizard and the Fire Crown, Crime Squad Ferrum Man.
+                                        </p>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="your-details your-details-xs"><span class="f-w-600">Favourite
+                                          Writers:</span>
+                                        <p>Martin T. Georgeston, Jhonathan R. Token, Ivana Rowle, Alexandr Platt, Marcus
+                                          Roth.</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row details-about">
+                                    <div class="col-sm-6">
+                                      <div class="your-details"><span class="f-w-600">Favourite Games:</span>
+                                        <p>The First of Us, Assassin’s Squad, Dark Assylum, NMAK16, Last Cause 4, Grand
+                                          Snatch Auto.</p>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="your-details your-details-xs"><span class="f-w-600">Other
+                                          Interests:</span>
+                                        <p>Swimming, Surfing, Scuba Diving, Anime, Photography, Tattoos, Street Art.</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-12">
+                              <div class="card">
+                                <div class="card-header social-header">
+                                  <h5>Education and Employement<span class="pull-right">
+                                      <app-feather-icons [icon]="'more-vertical'"></app-feather-icons>
+                                    </span></h5>
+                                </div>
+                                <div class="card-body">
+                                  <div class="row details-about">
+                                    <div class="col-sm-6">
+                                      <div class="your-details"><span class="f-w-600">The New College of Design</span>
+                                        <p>2001 - 2006</p>
+                                        <p>Breaking Good, RedDevil, People of Interest, The Running Dead, Found,
+                                          American Guy.</p>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="your-details your-details-xs"><span class="f-w-600">Digital Design
+                                          Intern</span>
+                                        <p>2006-2008</p>
+                                        <p>Digital Design Intern for the “Multimedz” agency. Was in charge of the
+                                          communication with the clients.</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row details-about">
+                                    <div class="col-sm-6">
+                                      <div class="your-details"><span class="f-w-600">Rembrandt Institute</span>
+                                        <p>2008</p>
+                                        <p>Five months Digital Illustration course. Professor: Leonardo Stagg.</p>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="your-details your-details-xs"><span class="f-w-600">UI/UX
+                                          Designer</span>
+                                        <p>2001 - 2006</p>
+                                        <p>Breaking Good, RedDevil, People of Interest, The Running Dead, Found,
+                                          American Guy.</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row details-about">
+                                    <div class="col-sm-6">
+                                      <div class="your-details"><span class="f-w-600">The Digital College</span>
+                                        <p>2010</p>
+                                        <p>6 months intensive Motion Graphics course. After Effects and Premire.
+                                          Professor: Donatello Urtle.</p>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="your-details your-details-xs"><span class="f-w-600">The New College of
+                                          Design</span>
+                                        <p>2008 - 2013</p>
+                                        <p>UI/UX Designer for the “Daydreams” agency.</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-12">
+                              <div class="card">
+                                <div class="card-header">
+                                  <h5>Viewed Your Profile</h5>
+                                </div>
+                                <div class="card-body avatar-showcase">
+                                  <div class="pepole-knows">
+                                    <ul>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/2.png"><span class="d-block f-w-600">Jason
+                                            Borne</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/3.png"><span class="d-block f-w-600">Anna
+                                            Mull</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/3.jpg"><span class="d-block f-w-600">Dion
+                                            Cast</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/4.jpg"><span class="d-block f-w-600">Karlene
+                                            Lex</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/8.jpg"><span class="d-block f-w-600">Vella
+                                            Chism</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/10.jpg"><span class="d-block f-w-600">Wai
+                                            Schalk</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="add-friend text-center"><img class="img-60 img-fluid rounded-circle"
+                                            alt="" src="assets/images/user/14.png"><span class="d-block f-w-600">Karlene
+                                            Lex</span>
+                                          <button class="btn btn-primary btn-xs">Add Friend</button>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-12">
+                              <div class="card">
+                                <div class="card-header">
+                                  <h5>Activity Log</h5>
+                                </div>
+                                <div class="card-body">
+                                  <div class="activity-log">
+                                    <div class="my-activity">
+                                      <h6 class="f-w-600">Today</h6>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'thumbs-up'"></app-feather-icons>
+                                        </span>Comeren Diaz likes your photos.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'user-plus'"></app-feather-icons>
+                                        </span>Karlene Lex and Comeren Diaz now friends.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'message-square'">
+                                          </app-feather-icons>
+                                        </span>Sarah Loren wrote on your timeline </p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'thumbs-up'"></app-feather-icons>
+                                        </span>Johny Waston likes your post's.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'user-plus'"></app-feather-icons>
+                                        </span>Andew Jon became friends with Comeren Diaz.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'user-plus'"></app-feather-icons>
+                                        </span>Johny Waston became friends with Bucky Barnes.</p>
+                                    </div>
+                                    <div class="my-activity">
+                                      <h6 class="f-w-600">25 December</h6>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'thumbs-up'"></app-feather-icons>
+                                        </span>Comeren Diaz likes your photos.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'thumbs-up'"></app-feather-icons>
+                                        </span>Johny Waston likes your post's.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'user-plus'"></app-feather-icons>
+                                        </span>Karlene Lex and Comeren Diaz now friends.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'user-plus'"></app-feather-icons>
+                                        </span>Johny Waston became friends with Bucky Barnes.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'message-square'">
+                                          </app-feather-icons>
+                                        </span>Sarah Loren wrote on your timeline </p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'message-square'">
+                                          </app-feather-icons>
+                                        </span>Comeren Diaz wrote on your timeline</p>
+                                    </div>
+                                    <div class="my-activity">
+                                      <h6 class="f-w-600">8 september</h6>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'thumbs-up'"></app-feather-icons>
+                                        </span>Comeren Diaz likes your photos.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'thumbs-up'"></app-feather-icons>
+                                        </span>Johny Waston likes your post's.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'user-plus'"></app-feather-icons>
+                                        </span>Karlene Lex and Comeren Diaz now friends.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'user-plus'"></app-feather-icons>
+                                        </span>Johny Waston became friends with Bucky Barnes.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'message-square'">
+                                          </app-feather-icons>
+                                        </span>Sarah Loren wrote on your timeline </p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'user-plus'"></app-feather-icons>
+                                        </span>Andew Jon became friends with Comeren Diaz.</p>
+                                    </div>
+                                    <div class="my-activity">
+                                      <h6 class="f-w-600">6 June</h6>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'thumbs-up'"></app-feather-icons>
+                                        </span>Comeren Diaz likes your photos.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'user-plus'"></app-feather-icons>
+                                        </span>Karlene Lex and Comeren Diaz now friends.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'message-square'">
+                                          </app-feather-icons>
+                                        </span>Sarah Loren wrote on your timeline </p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'thumbs-up'"></app-feather-icons>
+                                        </span>Johny Waston likes your post's.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'user-plus'"></app-feather-icons>
+                                        </span>Andew Jon became friends with Comeren Diaz.</p>
+                                      <p><span>
+                                          <app-feather-icons class="m-r-20" [icon]="'user-plus'"></app-feather-icons>
+                                        </span>Johny Waston became friends with Bucky Barnes.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </ng-template>
+                </ngb-tab>
+
+
+              </ngb-tabset>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Container-fluid Ends-->

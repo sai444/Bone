@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-6">
+    <div style="display: block;" class="chart">
+      <canvas baseChart width="40" height="40"
+
+              [datasets]="labelMFL"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="row">
+  <div class="col-md-4" style="margin-bottom: 10px">
+    <table class="table table-responsive table-condensed">
+      <tr>
+        <th *ngFor="let label of labelMFL">{{label}}</th>
+      </tr>
+      <tr *ngFor="let d of lineChartData">
+        <td *ngFor="let label of labelMFL; let j=index">{{d && d.data[j]}}</td>
+      </tr>
+    </table>
+
+  </div>
+</div> -->

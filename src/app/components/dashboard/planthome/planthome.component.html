@@ -1,0 +1,198 @@
+<div class="container-fluid">
+
+  <div class="row">
+
+    <div class="col-sm-12 ">
+      <!-- <div class="card"  > -->
+
+      <mat-card class="cardStyle">
+
+        <div class="card-body" style="    padding: 0px;">
+          <form class="needs-validation" novalidate>
+            <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label>Select Plant</label>
+                <div class="input-group">
+
+                  <select name="selectedQuantity" id="aantal" class="form-control"
+                    (change)='onOptionsSelected(selectedQuantity)' [(ngModel)]="selectedQuantity">
+                    <option *ngFor="let option of options1" [value]="option">{{option}}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+
+              </div>
+
+            </div>
+
+
+
+
+          </form>
+        </div>
+        <!-- </div> -->
+      </mat-card>
+
+
+
+    </div>
+  </div>
+  <div class="row leaflet-custom" style=" margin-top: 1%">
+
+    <div class="col-xl-6">
+      <div class="card" style="margin-top: 5px; background-color: #696982;">
+        <div class="card-header">
+          <h5>SKF Factories</h5>
+        </div>
+        <div class="card-body" style="  background-color: #6c757d;padding: 5px;">
+          <div class="map-height" style="height: 680px;" leaflet [leafletOptions]="options4"
+            (leafletMapReady)="onMapReady4($event)"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-xl-6">
+      <div class="card" style="margin-top: 5px;background-color: #696982;">
+        <div class="card-header">
+          <h5>{{options1}} Details </h5>
+        </div>
+        <div class="card-body" style="  background-color: #6c757d;padding: 5px;">
+          <div style="height: 680px;">
+            <div class="row">
+
+              <div class="col-xl-6   col-sm-6">
+                <div class="card ecommerce-widget" style="box-shadow: 0px 0px 1px 1px #00000033 !important; ">
+                  <div class="card-body support-ticket-font" style="padding:20px;    background-color: #ececec7a !important;
+                  ">
+                    <div class="row">
+                      <div class="col-5"><span style="color:white;font-size: 12px">
+                        <!-- <i class="fas fa-bezier-curve"></i>    -->
+                        Lines</span>
+                        <h3 class="total-num counter" style="color:#0000ffd6" class="counter" [CountTo]="2563"
+                          [from]="0" [duration]="2"></h3>
+                      </div>
+                      <div class="col-7" style="display:contents">
+                        <div class="text-md-right">
+                          <ul>
+                            <li>Active<span class="product-stts txt-success ml-2"
+                                style="    color: navy !important; ">25<i class="icon-angle-up f-12 ml-1"></i></span>
+                            </li>
+                            <li>Deactive<span class="product-stts txt-danger ml-2"
+                                style="    color: #a70010 !important; ">11<i
+                                  class="icon-angle-down f-12 ml-1"></i></span></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="progress-showcase">
+                      <div class="progress sm-progress-bar">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 45%" aria-valuenow="25"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-sm-6">
+                <div class="card ecommerce-widget" style="box-shadow: 0px 0px 1px 1px #00000033 !important; ">
+                  <div class="card-body support-ticket-font"
+                    style="padding:20px   ; background-color: #ececec7a !important; ">
+                    <div class="row">
+                      <div class="col-5"><span style="color:white;font-size: 12px">Alert</span>
+                        <h3 class="total-num counter" style="color:#d61d2ead" class="counter" [CountTo]="8943"
+                          [from]="0" [duration]="2"></h3>
+                      </div>
+                      <div class="col-7" style="display:contents">
+                        <div class="text-md-right">
+                          <ul>
+                            <li>Open<span class="product-stts txt-success ml-2"
+                                style="    color: navy !important; ">245<i class="icon-angle-up f-12 ml-1"></i></span>
+                            </li>
+                            <li>Close<span class="product-stts txt-danger ml-2"
+                                style="    color: #a70010 !important; ">200<i
+                                  class="icon-angle-down f-12 ml-1"></i></span></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="progress-showcase">
+                      <div class="progress sm-progress-bar">
+                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 70%" aria-valuenow="25"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-sm-6">
+                <div class="card ecommerce-widget" style="box-shadow: 0px 0px 1px 1px #00000033 !important; ">
+                  <div class="card-body support-ticket-font"
+                    style="padding:20px;background-color: #ececec7a !important;">
+                    <div class="row">
+                      <div class="col-5"><span style="color:white;font-size: 12px">Availability</span>
+                        <h3 class="total-num counter" style="color: yellow" class="counter" [CountTo]="2500" [from]="0"
+                          [duration]="2"></h3>
+                      </div>
+                      <div class="col-7" style="display:contents">
+                        <div class="text-md-right">
+                          <ul>
+                            <li>Up Time<span class="product-stts txt-success ml-2"
+                                style="    color: navy !important; ">82<i class="icon-angle-up f-12 ml-1"></i></span>
+                            </li>
+                            <li>Down Time<span class="product-stts txt-danger ml-2"
+                                style="    color: #a70010 !important; ">25<i
+                                  class="icon-angle-down f-12 ml-1"></i></span></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="progress-showcase mt-4">
+                      <div class="progress sm-progress-bar">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="25"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-sm-6">
+                <div class="card ecommerce-widget" style="box-shadow: 0px 0px 1px 1px #00000033 !important; ">
+                  <div class="card-body support-ticket-font"
+                    style="padding:20px;background-color: #ececec7a !important;">
+                    <div class="row">
+                      <div class="col-5"><span style="color:white;font-size: 12px"> Quality</span>
+                        <h3 class="total-num counter" style="color:greenyellow" class="counter" [CountTo]="2060"
+                          [from]="0" [duration]="2"></h3>
+                      </div>
+                      <div class="col-7" style="display:contents;">
+                        <div class="text-md-right">
+                          <ul>
+                            <li>Accepted<span class="product-stts txt-success ml-2" style="color:navy !important">91<i
+                                  class="icon-angle-up f-12 ml-1"></i></span></li>
+                            <li>Rejected<span class="product-stts txt-danger ml-2"
+                                style="    color: #a70010 !important; ">10<i
+                                  class="icon-angle-down f-12 ml-1"></i></span></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="progress-showcase mt-4">
+                      <div class="progress sm-progress-bar">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

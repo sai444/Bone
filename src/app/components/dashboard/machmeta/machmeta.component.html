@@ -1,0 +1,113 @@
+<!-- <section class="container" style=" overflow: auto; padding: 1%;background: white !important;height: 101vh;"> -->
+<div class="row">
+    <mat-card class="firstCard">
+
+        <div class="col-12 col-sm-12 col-xs-12 mainDiv">
+
+
+
+
+            <div *ngFor="let machinelineData of machineData;index as i " class="col-6 col-sm-6 col-xs-6  cardDiv">
+                <mat-card class="lineCard">
+                    <mat-toolbar class="cardheader" (click)="routeToProfile(machinelineData?.Machine)">
+                        <span style="color: white;">{{machinelineData?.Machine}}</span>
+
+                    </mat-toolbar>
+                    <mat-card-content class="custom-mat-card-content">
+
+                        <div class="col-xl-9 col-sm-9 col-md-9" style="    height: 108px;display: flex ">
+
+                            <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                                <label>Health</label>
+
+                                <div style="display: block;">
+                                    <!-- [data]="pieChartData[i] ? pieChartData[i] : getPieChartData(pieChartData,i)" -->
+                                    <canvas
+                                        *ngIf="pieChartData[i][0] != 0 || pieChartData[i][1] !=0 || pieChartData[i][2] != 0"
+                                        baseChart [colors]="chartColors1" [data]="pieChartData[i]"
+                                        [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
+                                        [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+                                    </canvas>
+                                    <canvas baseChart
+                                        *ngIf="pieChartData[i][0] == 0 && pieChartData[i][1] == 0 && pieChartData[i][2] == 0"
+                                        [data]="pieChartDataNull" [labels]="pieChartLabelsNull"
+                                        [chartType]="pieChartType" [options]="pieChartOptionsNull"
+                                        [colors]="chartColorsNull" [plugins]="pieChartPlugins"
+                                        [legend]="pieChartLegend">
+                                    </canvas>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                                <label>Vibration</label>
+
+                                <div style="display: block;">
+
+                                    <canvas baseChart [colors]="chartColors1"
+                                        *ngIf="pieChartDataGraph[i][0] != 0 || pieChartDataGraph[i][1] != 0 || pieChartDataGraph[i][2] != 0"
+                                        [data]="pieChartDataGraph[i]" [labels]="pieChartLabels2"
+                                        [chartType]="pieChartType2" [options]="pieChartOptions2"
+                                        [plugins]="pieChartPlugins2" [legend]="pieChartLegend2">
+                                    </canvas>
+                                    <canvas baseChart
+                                        *ngIf="pieChartDataGraph[i][0] == 0 && pieChartDataGraph[i][1] == 0 && pieChartDataGraph[i][2] == 0"
+                                        [data]="pieChartDataNull" [labels]="pieChartLabelsNull"
+                                        [chartType]="pieChartType" [options]="pieChartOptionsNull"
+                                        [colors]="chartColorsNull" [plugins]="pieChartPlugins"
+                                        [legend]="pieChartLegend">
+                                    </canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-sm-3 col-md-3" style="        margin-top: 2%; ">
+                            <mat-card class="imgdiv">
+                                <div style="display: flow-root;">
+                                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif"
+                                        alt=""> <span> Alert</span> &nbsp;
+                                    <span
+                                        class="alertNumber">{{machinelineData?.Alerts}}/{{machinelineData?.Total}}</span>
+                                </div>
+                            </mat-card>
+
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+    </mat-card>
+
+    <div style="position: absolute; bottom:0;">
+        <marquee behavior="scroll" direction="left" scrollamount="3">
+
+            <mat-card class="alertFloat"
+                style="    margin: 6px; box-shadow: 0 2px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);  ">
+
+
+                <div class="col-md-12">
+                    <span *ngFor="let data of machinelineAlerts; index as i ">
+                        <span> &nbsp; {{i+1}})</span> <span> Perameter
+                            &nbsp;:{{data?.description}}</span>
+
+                        <span>Value &nbsp;: {{data?.alertval}}</span>
+                        <span> TimeStamp &nbsp;: {{data?.created_on | date:'medium'}}</span>
+
+
+                    </span>
+                </div>
+            </mat-card>
+
+        </marquee>
+
+    </div>
+
+
+</div>
+<!-- </section> -->

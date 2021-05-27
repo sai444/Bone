@@ -1,0 +1,66 @@
+<div class="container-fluid p-0">
+  <div class="auth-bg-video">
+    <video id="bgvid" poster="assets/images/new.jpg" playsinline="" autoplay="" muted="" loop="">
+      <source src="assets/video/auth-bg.mp4" type="video/mp4">
+    </video>
+  <div class="authentication-main"style="     background-color: #28a74561;    height: 800px;">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="auth-innerright">
+          <div class="authentication-box" >
+            <div class="text-center"><h1 style="font-size: -webkit-xxx-large;
+              color: #151e8a;">Brevium</h1></div>
+            <div class="card mt-4">
+              <div class="card-body">
+                <div class="text-center">
+                  <h4>LOGIN</h4>
+                  <!-- <h6>Enter your Username and Password </h6> -->
+                </div>
+                <form class="needs-validation"[formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <!-- <img src="assets/images/Hitachi.png"       /> -->
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">User Name</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" formControlName="username" aria-describedby="emailHelp" placeholder="username">
+
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password"  placeholder="Password">
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Login</button>
+
+
+                  <div class="text-left p-t-30 p-b-20">
+                    <span class="txt3">
+                     <!-- <a routerLink="/authentication/forgot-password">
+                         Reset Password
+                      </a> -->
+                    </span>
+                  </div>
+
+
+
+                  <!-- <div class="login100-form-social flex-c-m">
+                    <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                  </div> -->
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- login page end-->
+</div>

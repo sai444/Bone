@@ -1,0 +1,132 @@
+<div class="row" style="height:89vh;overflow: auto;  display: block;">
+
+    <div class="row" style="width: -webkit-fill-available;    height: 17%; ">
+        <mat-card class="cardStyle">
+            <form [formGroup]="historyForm">
+
+
+                <div class="card-body" style="display:flex;padding: 0px">
+
+                    <div class="form-group col-md-2 col-sm-2">
+                        <label for="exampleFormControlSelect17">Line</label>
+                        <select (change)="getMachineList($event.target.value)" class="form-control input-air-primary digits" formControlName="line"
+                            id="exampleFormControlSelect17">
+                            <option *ngFor="let lines of LinesList" [value]="lines.name">{{lines?.name}}</option>
+
+                        </select>
+
+                    </div>
+                    <div class="form-group col-md-2 col-sm-2">
+                        <label for="exampleFormControlSelect17">Machine</label>
+                        <select (change)="getProperties($event,historyForm.value)"
+                            class="form-control input-air-primary digits" formControlName="machine"
+                            id="exampleFormControlSelect17">
+                            <option  *ngFor="let machine of machineList" [value]="machine.name">{{machine?.name}}</option>
+         
+                        </select>
+
+                    </div>
+                    <div class="form-group col-md-2 col-sm-2">
+                        <label for="exampleFormControlSelect17">Property</label>
+                        <select formControlName="property" class="form-control input-air-primary digits"
+                            id="exampleFormControlSelect17">
+                            <option *ngFor="let propertiesList of properties" [value]="propertiesList.property">
+                                {{propertiesList.property}}</option>
+
+                        </select>
+
+                    </div>
+                    <div class="form-group col-md-2 col-sm-2">
+                        <label for="exampleFormControlSelect17">From Date</label>
+                        <div class="input-group date" data-provide="datepicker">
+                            <input type="date" [(ngModel)]="fromdate" class="form-control" formControlName="fromDate">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-group col-md-2 col-sm-2">
+                        <label for="exampleFormControlSelect17">To Date</label>
+                        <div class="input-group date" data-provide="datepicker">
+                            <input type="date" [(ngModel)]="todate" class="form-control" formControlName="toDate">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2 col-sm-2" style="    align-self: center;  margin-top: 1%;">
+                        <button class="btn btn-outline-success" type="button" placement="center"
+                            [disabled]="historyForm.invalid" (click)="getGraphData(historyForm.value)">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </mat-card>
+
+
+    </div>
+    <div class="row" style="width: -webkit-fill-available;">
+        <mat-card class="propertyCard">
+
+
+            <div class="card-body" style="display:flex;padding: 0px">
+
+                <div class="form-group col-md-3 col-sm-3">
+                    <label for="exampleFormControlSelect17">Parameter &nbsp;:</label>
+                    <span *ngIf="graphData">{{selectedProperty}}</span>
+                </div>
+                <div class="form-group col-md-2 col-sm-2">
+                    <label for="exampleFormControlSelect17">R_Value &nbsp; :</label>
+                    <span *ngIf="graphData">{{graphData[length-1]?.value}}</span>
+
+
+                </div>
+                <div class="form-group col-md-4 col-sm-4">
+                    <label for="exampleFormControlSelect17">At Timestamp &nbsp; :</label>
+                    <span *ngIf="graphData">{{graphData[length-1]?.date | date:'medium'}}</span>
+
+
+                </div>
+                <div class="form-group col-md-3 col-sm-3">
+                        <label for="exampleFormControlSelect17">Threshold Limit &nbsp; :</label>
+                        <span *ngIf="graphData">{{graphData[length-1]?.threshold}}</span>
+    
+    
+                    </div>
+
+            </div>
+        </mat-card>
+
+
+    </div>
+    <div *ngIf="graphData" class="row" style="width: -webkit-fill-available;margin-top: 1%">
+        <mat-card class="graphCard">
+            <div>
+                <div id="wrapper">
+                    <div id="chart-line" *ngIf="graphData">
+                        <apx-chart *ngIf="chartOptions11" [series]="chartOptions11.series"
+                            [chart]="chartOptions11.chart" [xaxis]="chartOptions11.xaxis"
+                            [dataLabels]="chartOptions11.dataLabels" [colors]="chartOptions11.colors"
+                            [fill]="chartOptions11.fill" [markers]="chartOptions11.markers"
+                            [stroke]="chartOptions11.stroke"></apx-chart>
+                    </div>
+                    <div id="chart-line2" *ngIf="graphData">
+                        <apx-chart *ngIf="chartOptions12" [series]="chartOptions12.series"
+                            [chart]="chartOptions12.chart" [xaxis]="chartOptions12.xaxis"
+                            [colors]="chartOptions12.colors" [fill]="chartOptions12.fill"
+                            [yaxis]="chartOptions12.yaxis"></apx-chart>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </mat-card>
+
+
+    </div>
+
+</div>

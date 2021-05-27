@@ -1,0 +1,1067 @@
+<!-- <section class="container" style=" overflow: auto; padding: 1%;background: white !important;height: 101vh;"> -->
+<div class="row" style="height:-webkit-fill-available">
+  <mat-card class="firstCard">
+
+    <div class="col-12 mainDiv">
+
+
+      <div *ngFor="let data of linedata" class="col-sm-12 col-xs-12 col-md-3 cardDiv">
+        <mat-card class="lineCard">
+          <mat-toolbar class="cardheader" (click)="routeToLineDashboard(data.line)">
+            <span style="color: white;">{{data?.line}}</span>
+
+            <img src="../../../../assets/images/dashboard-icons/health.gif" class="imgcls" alt="Italian Trulli">
+          </mat-toolbar>
+          <mat-card-content class="custom-mat-card-content cardContent">
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Running</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Quality</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Vibration</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="data.Vibration_Severity === 'Green' ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Health</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="data.Health_Severity === 'Green' ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Alert</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span class="alertCount"> {{data?.Alerts}} /{{data?.Total}}</span>
+
+                <!-- <app-feather-icons class="feathericon"[icon]="'maximize-2'">
+                    </app-feather-icons> -->
+                <img class="imgview" (click)="open(content,data)"
+                  src="../../../../assets/images/dashboard-icons/minimize-icon-2.jpg" alt="">
+              </div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+
+      <div class="col-sm-12 col-xs-12 col-md-3 cardDiv">
+        <mat-card class="lineCard">
+          <mat-toolbar class="cardheader">
+            <span style="color: white;">CHANNEL 1</span>
+
+            <img src="../../../../assets/images/dashboard-icons/health.gif" class="imgcls" alt="Italian Trulli">
+          </mat-toolbar>
+          <mat-card-content class="custom-mat-card-content cardContent">
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Running</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Quality</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Vibration</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Health</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Alert</span>
+
+
+              </div>
+              <div class="col-md-6 icons">
+                <span class="alertCount"> 0/0</span>
+
+                <img class="imgview" src="../../../../assets/images/dashboard-icons/minimize-icon-2.jpg" alt="">
+
+              </div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+
+      <div class="col-sm-12 col-xs-12 col-md-3 cardDiv">
+        <mat-card class="lineCard">
+          <mat-toolbar class="cardheader">
+            <span style="color: white;">CHANNEL 2</span>
+
+            <img src="../../../../assets/images/dashboard-icons/health.gif" class="imgcls" alt="Italian Trulli">
+          </mat-toolbar>
+          <mat-card-content class="custom-mat-card-content cardContent">
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Running</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Quality</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Vibration</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Health</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Alert</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span class="alertCount"> 0/0</span>
+
+                <img class="imgview" src="../../../../assets/images/dashboard-icons/minimize-icon-2.jpg" alt="">
+
+              </div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+      <div class="col-sm-12 col-xs-12 col-md-3 cardDiv">
+        <mat-card class="lineCard">
+          <mat-toolbar class="cardheader">
+            <span style="color: white;">CHANNEL 3</span>
+
+            <img src="../../../../assets/images/dashboard-icons/health.gif" class="imgcls" alt="Italian Trulli">
+          </mat-toolbar>
+          <mat-card-content class="custom-mat-card-content cardContent">
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Running</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Quality</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Vibration</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Health</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Alert</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span class="alertCount"> 0/0</span>
+
+                <img class="imgview" src="../../../../assets/images/dashboard-icons/minimize-icon-2.jpg" alt="">
+
+              </div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+      <div class="col-sm-12 col-xs-12 col-md-3 cardDiv">
+        <mat-card class="lineCard">
+          <mat-toolbar class="cardheader">
+            <span style="color: white;">CHANNEL 4</span>
+
+            <img src="../../../../assets/images/dashboard-icons/health.gif" class="imgcls" alt="Italian Trulli">
+          </mat-toolbar>
+          <mat-card-content class="custom-mat-card-content cardContent">
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Running</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Quality</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Vibration</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Health</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Alert</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span class="alertCount"> 0/0</span>
+
+                <img class="imgview" src="../../../../assets/images/dashboard-icons/minimize-icon-2.jpg" alt="">
+
+              </div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+      <div class="col-sm-12 col-xs-12 col-md-3 cardDiv">
+        <mat-card class="lineCard">
+          <mat-toolbar class="cardheader">
+            <span style="color: white;">CHANNEL 7</span>
+
+            <img src="../../../../assets/images/dashboard-icons/health.gif" class="imgcls" alt="Italian Trulli">
+          </mat-toolbar>
+          <mat-card-content class="custom-mat-card-content cardContent">
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Running</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Quality</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Vibration</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Health</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Alert</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span class="alertCount"> 0/0</span>
+
+                <img class="imgview" src="../../../../assets/images/dashboard-icons/minimize-icon-2.jpg" alt="">
+
+              </div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+      <div class="col-sm-12 col-xs-12 col-md-3 cardDiv">
+        <mat-card class="lineCard">
+          <mat-toolbar class="cardheader">
+            <span style="color: white;">CHANNEL 8</span>
+
+            <img src="../../../../assets/images/dashboard-icons/health.gif" class="imgcls" alt="Italian Trulli">
+          </mat-toolbar>
+          <mat-card-content class="custom-mat-card-content cardContent">
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Running</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Quality</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Vibration</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Health</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+              </div>
+
+            </div>
+            <br>
+
+
+
+
+            <div style="    display: flex; ">
+              <div class="col-md-2">
+                <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt="">
+
+              </div>
+              <div class="col-md-4">
+                <span>Alert</span>
+
+              </div>
+              <div class="col-md-6 icons">
+                <span class="alertCount"> 0/0</span>
+
+                <img class="imgview" src="../../../../assets/images/dashboard-icons/minimize-icon-2.jpg" alt="">
+
+              </div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+
+
+      <!-- <div class="col-3 cardDiv">
+              <mat-card class="lineCard">
+                <mat-toolbar class="cardheader">
+                  <span style="color: white;">Line 2</span>
+      
+                  <img src="../../assets/img/cloud-computing.png" class="imgcls" alt="Italian Trulli">
+                </mat-toolbar>
+                <mat-card-content class="custom-mat-card-content cardContent">
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+                    <span>Running</span> &nbsp; <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+                    <span>Health</span> &nbsp; <span [ngClass]="communication === true ? 'yellow' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+                    <span>Quality</span> &nbsp; <span [ngClass]="communication === true ? 'blue' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+                    <span>Vibration</span> &nbsp; <span [ngClass]="communication === true ? 'red' : 'red'"> </span>
+                  </div><br>
+                  <div style="display:flex">
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt=""> <span> Alert</span>
+                    &nbsp; <span class="alertCount">1/12</span>
+                    <app-feather-icons class="feathericon"(click)="open(content)" [icon]="'maximize-2'"></app-feather-icons>
+      
+                  </div>
+                </mat-card-content>
+      
+              </mat-card>
+      
+            </div>
+            <div class="col-3 cardDiv">
+              <mat-card class="lineCard">
+                <mat-toolbar class="cardheader">
+                  <span style="color: white;">Line 3</span>
+      
+                  <img src="../../assets/img/cloud-computing.png" class="imgcls" alt="Italian Trulli">
+                </mat-toolbar>
+                <mat-card-content class="custom-mat-card-content cardContent">
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+                    <span>Running</span> &nbsp; <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+                    <span>Health</span> &nbsp; <span [ngClass]="communication === true ? 'yellow' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+                    <span>Quality</span> &nbsp; <span [ngClass]="communication === true ? 'blue' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+                    <span>Vibration</span> &nbsp; <span [ngClass]="communication === true ? 'red' : 'red'"> </span>
+                  </div><br>
+                  <div style="display:flex">
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt=""> <span> Alert</span>
+                    &nbsp; <span class="alertCount">1/12</span>
+                    <app-feather-icons class="feathericon"(click)="open(content)" [icon]="'maximize-2'"></app-feather-icons>
+      
+                  </div>
+                </mat-card-content>
+              </mat-card>
+      
+            </div>
+            <div class="col-3 cardDiv">
+              <mat-card class="lineCard">
+                <mat-toolbar class="cardheader">
+                  <span style="color: white;">Line 4</span>
+      
+                  <img src="../../assets/img/cloud-computing.png" class="imgcls" alt="Italian Trulli">
+                </mat-toolbar>
+                <mat-card-content class="custom-mat-card-content cardContent">
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+                    <span>Running</span> &nbsp; <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+                    <span>Health</span> &nbsp; <span [ngClass]="communication === true ? 'yellow' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+                    <span>Quality</span> &nbsp; <span [ngClass]="communication === true ? 'blue' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+                    <span>Vibration</span> &nbsp; <span [ngClass]="communication === true ? 'red' : 'red'"> </span>
+                  </div><br>
+                  <div style="display:flex">
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt=""> <span> Alert</span>
+                    &nbsp; <span class="alertCount">1/12</span>
+                    <app-feather-icons class="feathericon"(click)="open(content)" [icon]="'maximize-2'"></app-feather-icons>
+      
+                  </div>
+                </mat-card-content>
+      
+              </mat-card>
+      
+            </div>
+      
+            <div class="col-3 cardDiv">
+              <mat-card class="lineCard">
+                <mat-toolbar class="cardheader">
+                  <span style="color: white;">Line 5</span>
+      
+                  <img src="../../assets/img/cloud-computing.png" class="imgcls" alt="Italian Trulli">
+                </mat-toolbar>
+                <mat-card-content class="custom-mat-card-content cardContent">
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+                    <span>Running</span> &nbsp; <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+                    <span>Health</span> &nbsp; <span [ngClass]="communication === true ? 'yellow' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+                    <span>Quality</span> &nbsp; <span [ngClass]="communication === true ? 'blue' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+                    <span>Vibration</span> &nbsp; <span [ngClass]="communication === true ? 'red' : 'red'"> </span>
+                  </div><br>
+                  <div style="display:flex">
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt=""> <span> Alert</span>
+                    &nbsp; <span class="alertCount">1/12</span>
+                    <app-feather-icons class="feathericon"(click)="open(content)" [icon]="'maximize-2'"></app-feather-icons>
+      
+                  </div>
+                </mat-card-content>
+      
+              </mat-card>
+      
+            </div>
+            <div class="col-3 cardDiv">
+              <mat-card class="lineCard">
+                <mat-toolbar class="cardheader">
+                  <span style="color: white;">Line 6</span>
+      
+                  <img src="../../assets/img/cloud-computing.png" class="imgcls" alt="Italian Trulli">
+                </mat-toolbar>
+                <mat-card-content class="custom-mat-card-content cardContent">
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+                    <span>Running</span> &nbsp; <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+                    <span>Health</span> &nbsp; <span [ngClass]="communication === true ? 'yellow' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+                    <span>Quality</span> &nbsp; <span [ngClass]="communication === true ? 'blue' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+                    <span>Vibration</span> &nbsp; <span [ngClass]="communication === true ? 'red' : 'red'"> </span>
+                  </div><br>
+                  <div style="display:flex">
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt=""> <span> Alert</span>
+                    &nbsp; <span class="alertCount">1/12</span>
+                    <app-feather-icons class="feathericon"(click)="open(content)" [icon]="'maximize-2'"></app-feather-icons>
+      
+                  </div>
+                </mat-card-content>
+      
+              </mat-card>
+      
+            </div>
+      
+            <div class="col-3 cardDiv">
+              <mat-card class="lineCard">
+                <mat-toolbar class="cardheader">
+                  <span style="color: white;">Line 7</span>
+      
+                  <img src="../../assets/img/cloud-computing.png" class="imgcls" alt="Italian Trulli">
+                </mat-toolbar>
+                <mat-card-content class="custom-mat-card-content cardContent">
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+                    <span>Running</span> &nbsp; <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+                    <span>Health</span> &nbsp; <span [ngClass]="communication === true ? 'yellow' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+                    <span>Quality</span> &nbsp; <span [ngClass]="communication === true ? 'blue' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+                    <span>Vibration</span> &nbsp; <span [ngClass]="communication === true ? 'red' : 'red'"> </span>
+                  </div><br>
+                  <div style="display:flex">
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt=""> <span> Alert</span>
+                    &nbsp; <span class="alertCount">1/12</span>
+                    <app-feather-icons class="feathericon"(click)="open(content)" [icon]="'maximize-2'"></app-feather-icons>
+      
+                  </div>
+                </mat-card-content>
+      
+      
+              </mat-card>
+      
+            </div>
+            <div class="col-3 cardDiv">
+              <mat-card class="lineCard">
+                <mat-toolbar class="cardheader">
+                  <span style="color: white;">Line 8</span>
+      
+                  <img src="../../assets/img/cloud-computing.png" class="imgcls" alt="Italian Trulli">
+                </mat-toolbar>
+                <mat-card-content class="custom-mat-card-content cardContent">
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/running.gif" alt="">
+                    <span>Running</span> &nbsp; <span [ngClass]="communication === true ? 'green' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/health.gif" alt="">
+                    <span>Health</span> &nbsp; <span [ngClass]="communication === true ? 'yellow' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/check-circle.gif" alt="">
+                    <span>Quality</span> &nbsp; <span [ngClass]="communication === true ? 'blue' : 'red'"> </span>
+                  </div><br>
+                  <div>
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/vibration.gif" alt="">
+                    <span>Vibration</span> &nbsp; <span [ngClass]="communication === true ? 'red' : 'red'"> </span>
+                  </div><br>
+                  <div style="display:flex">
+      
+                    <img class="alertcls" src="../../../../assets/images/dashboard-icons/bell.gif" alt=""> <span> Alert</span>
+                    &nbsp; <span class="alertCount">1/12</span>
+                    <app-feather-icons class="feathericon"(click)="open(content)" [icon]="'maximize-2'"></app-feather-icons>
+      
+                  </div>
+                </mat-card-content>
+      
+              </mat-card>
+      
+            </div> -->
+    </div>
+
+
+
+  </mat-card>
+
+  <div style="position: absolute;bottom:0;">
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+
+      <mat-card class="alertFloat"
+        style="    margin: 6px; box-shadow: 0 2px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);  ">
+
+
+        <div class="col-md-12">
+          <span *ngFor="let data of machinelineAlerts; index as i ">
+            <span> &nbsp; {{i+1}})</span> {{data?.description}} &nbsp; {{data?.alertval}} &nbsp;
+            {{data?.created_on | date:'medium' }}
+          </span>
+        </div>
+      </mat-card>
+
+    </marquee>
+
+  </div>
+
+</div>
+<!-- </section> -->
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{selectedLine}}</h4>
+    <button type="button" class="close" aria-label="Close" style="color:white" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" style="background-color:white !important">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="form-group" style="display: flex">
+        <div class="col-md-6  col-sm-6 col-6">
+          <label class="graphlabel">Health</label>
+          <div style="display: block;">
+            <canvas *ngIf="pieChartData[0] != 0 || pieChartData[1] != 0 || pieChartData[2] != 0" baseChart
+              [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [colors]="chartColors1"
+              [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+            </canvas>
+            <canvas *ngIf="pieChartData[0] == 0 && pieChartData[1] == 0 && pieChartData[2] == 0" baseChart
+              [data]="pieChartDataNull" [labels]="pieChartLabelsNull" [chartType]="pieChartType"
+              [colors]="chartColorsNull" [options]="pieChartOptionsNull" [plugins]="pieChartPlugins"
+              [legend]="pieChartLegend">
+            </canvas>
+
+          </div>
+        </div>
+        <div class="col-md-6  col-sm-6 col-6">
+          <h6 class="graphlabel">Vibration</h6>
+
+          <div style="display: block;">
+
+            <canvas baseChart *ngIf="pieChartData2[0] != 0 || pieChartData2[1] != 0 || pieChartData2[2] != 0"
+              [data]="pieChartData2" [colors]="chartColors1" [labels]="pieChartLabels2" [chartType]="pieChartType2"
+              [options]="pieChartOptions2" [plugins]="pieChartPlugins2" [legend]="pieChartLegend2">
+            </canvas>
+            <canvas *ngIf="pieChartData2[0] == 0 && pieChartData2[1] == 0 && pieChartData2[2] == 0" baseChart
+              [data]="pieChartDataNull" [labels]="pieChartLabelsNull" [chartType]="pieChartType"
+              [colors]="chartColorsNull" [options]="pieChartOptionsNull" [plugins]="pieChartPlugins"
+              [legend]="pieChartLegend">
+            </canvas>
+          </div>
+        </div>
+
+      </div>
+
+    </form>
+  </div>
+
+</ng-template>

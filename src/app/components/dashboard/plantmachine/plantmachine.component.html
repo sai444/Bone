@@ -1,0 +1,648 @@
+
+<div class="container-fluid" background-color: #26282f;>
+  <div class="row" >
+    <div class="col-sm-12 " style="    margin-top: 15px;">
+        <div class="card"  style=" background-color: #616573;">
+
+
+            <div class="card-body">
+                <form class="needs-validation" novalidate>
+                    <div class="form-row" >
+                      <div class="col-md-3 mb-3">
+                        <label>Select Plant</label>
+                        <div class="input-group">
+                            <!-- <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div> -->
+                            <select style="    background-color: #c3bcbc; color: #020202;" name="selectedQuantity" id="aantal" class="form-control" (change)='onOptionsSelectedp(selectedQuantity)' [(ngModel)]="selectedQuantityp">
+                              <option  style="    background-color: #c3bcbc; color: #020202;" *ngFor="let option of optionsp" [value]="option" >{{option}}</option>
+                          </select>
+                        </div>
+                      </div>
+                        <div class="col-md-3 mb-3">
+                          <label>Select Line</label>
+                          <div class="input-group">
+                              <!-- <div class="input-group-prepend">
+                                  <span class="input-group-text">@</span>
+                              </div> -->
+                              <select style="    background-color: #c3bcbc; color: #020202;" name="selectedQuantity" id="aantal" class="form-control" (change)='onOptionsSelected(selectedQuantity)' [(ngModel)]="selectedQuantity">
+                                <option  style="    background-color: #c3bcbc; color: #020202;" *ngFor="let option of options1" [value]="option" >{{option}}</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                          <label>Select Machine</label>
+                          <div class="input-group" >
+                            <select style="    background-color: #c3bcbc; color: #020202;" name="selectedQuantitys" id="aantal" class="form-control"  (change)='onOptionsSelecteds(selectedQuantitys)' [(ngModel)]="selectedQuantitys">
+                              <option  style="    background-color: #c3bcbc; color: #020202;"  *ngFor="let option of options" [value]="option" >{{option}}</option>
+                          </select>
+                          </div>
+                        </div>
+                        <div class="col-md-3 mb-3" >
+<!--
+                          <button  style="    margin: 30px;" class="btn btn-primary" type="submit">OK
+                            </button> -->
+                        </div>
+
+                    </div>
+
+
+
+
+                </form>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+	<div class="row" >
+    <div class="col-sm-12 col-xl-6">
+
+			<div class="card card-absolute">
+				<div class="card-header bg-primary">
+					<h5>{{selectedQuantitys}}</h5>
+				</div>
+        <div class="row" style="background-color: ghostwhite;     margin: auto;     width: 100%;    ">
+          <div class="col-sm">
+
+          <div  >
+            <div class="row">
+              <div class="col-md-6" >
+                <div style="display: block;" class="chart" style="    margin: 20px;
+                height: 200px;
+                width: 800px;">
+                  <canvas baseChart width="40" height="10"
+
+                            [datasets]="labelMFL"
+                          [labels]="lineChartLabels"
+                          [options]="lineChartOptions"
+                          [colors]="lineChartColors"
+
+                          [legend]="lineChartLegend"
+                          [chartType]="lineChartType"
+                         ></canvas>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-sm" style="    margin: auto;">
+          <div class="row">
+                <div class="col-6">
+
+              <div class="card" >
+  <div class="card-body">
+    <div class="media feather-main">
+
+      <div class="media-body align-self-center">
+        <h6 ng-class="tagvalues7">{{values1 }}</h6>
+        <p ng-class="values7">{{tagvalues1}}</p>
+
+      </div>
+    </div>
+
+</div>
+</div>
+</div>
+
+<div class="col-6">
+
+<div class="card">
+  <div class="card-body">
+    <div class="media feather-main">
+
+      <div class="media-body align-self-center">
+        <h6 ng-class="tagvalues8">{{values2 }}</h6>
+        <p ng-class="values8">{{tagvalues2}}</p>
+      </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+
+          </div>
+
+
+</div>
+			</div>
+
+		</div>
+
+    <div class="col-sm-12 col-xl-6">
+
+			<div class="card card-absolute">
+				<div class="card-header bg-primary">
+          <h5>{{selectedQuantitys}}</h5>
+				</div>
+        <div class="row" style="background-color: ghostwhite;     margin: auto;     width: 100%;">
+          <div class="col-sm">
+            <div  >
+              <div class="row">
+                <div class="col-md-6" >
+                  <div style="display: block;" class="chart" style="    margin: 20px;
+                  height: 200px;
+                  width: 800px;">
+                    <canvas baseChart width="40" height="10"
+
+                            [datasets]="labelMFL1"
+                            [labels]="lineChartLabels1"
+                            [options]="lineChartOptions"
+                            [colors]="lineChartColors"
+
+                            [legend]="lineChartLegend"
+                            [chartType]="lineChartType"
+                           ></canvas>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-sm" style="    margin: auto;">
+          <div class="row">
+                <div class="col-6">
+
+              <div class="card" >
+  <div class="card-body">
+    <div class="media feather-main">
+
+      <div class="media-body align-self-center">
+        <h6 ng-class="tagvalues7">{{values4 }}</h6>
+        <p ng-class="values7">{{tagvalues4}}</p>
+
+      </div>
+    </div>
+
+</div>
+</div>
+</div>
+
+<div class="col-6">
+
+<div class="card">
+  <div class="card-body">
+    <div class="media feather-main">
+
+      <div class="media-body align-self-center">
+        <h6 ng-class="tagvalues8">{{values3 }}</h6>
+        <p ng-class="values8">{{tagvalues3}}</p>
+      </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+
+          </div>
+
+</div>
+			</div>
+
+		</div>
+
+  </div>
+  </div>
+
+
+<div class="container-fluid">
+  <div class="row" >
+
+
+    <div class="col-sm-12 col-xl-6">
+
+			<div class="card card-absolute">
+				<div class="card-header bg-primary">
+          <h5>{{selectedQuantitys}}</h5>
+				</div>
+        <div class="row" style="background-color: ghostwhite;     margin: auto;     width: 100%;">
+          <div class="col-sm">
+
+            <div  >
+              <div class="row">
+                <div class="col-md-6" >
+                  <div style="display: block;" class="chart" style="    margin: 20px;
+                  height: 200px;
+                  width: 800px;">
+                    <canvas baseChart width="40" height="10"
+
+                            [datasets]="labelMFL2"
+                            [labels]="lineChartLabels2"
+                            [options]="lineChartOptions"
+                            [colors]="lineChartColors"
+
+                            [legend]="lineChartLegend"
+                            [chartType]="lineChartType"
+                           ></canvas>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-sm" style="    margin: auto;">
+          <div class="row">
+                <div class="col-6">
+
+              <div class="card" >
+  <div class="card-body">
+    <div class="media feather-main">
+
+      <div class="media-body align-self-center">
+        <h6 ng-class="tagvalues7">{{values5 }}</h6>
+        <p ng-class="values7">{{tagvalues5}}</p>
+
+      </div>
+    </div>
+
+</div>
+</div>
+</div>
+
+<div class="col-6">
+
+<div class="card">
+  <div class="card-body">
+    <div class="media feather-main">
+
+      <div class="media-body align-self-center">
+        <h6 ng-class="tagvalues8">{{values6 }}</h6>
+        <p ng-class="values8">{{tagvalues6}}</p>
+      </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+
+          </div>
+
+
+</div>
+			</div>
+
+		</div>
+
+    <div class="col-sm-12 col-xl-6">
+
+			<div class="card card-absolute">
+				<div class="card-header bg-primary">
+          <h5>{{selectedQuantitys}}</h5>
+				</div>
+        <div class="row" style="background-color: ghostwhite;     margin: auto;     width: 100%;">
+          <div class="col-sm">
+
+            <div  >
+              <div class="row">
+                <div class="col-md-6" >
+                  <div style="display: block;" class="chart" style="    margin: 20px;
+                  height: 200px;
+                  width: 800px;">
+                    <canvas baseChart width="40" height="10"
+
+                            [datasets]="labelMFL3"
+                            [labels]="lineChartLabels3"
+                            [options]="lineChartOptions"
+                            [colors]="lineChartColors"
+
+                            [legend]="lineChartLegend"
+                            [chartType]="lineChartType"
+                           ></canvas>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-sm" style="    margin: auto;">
+            <div class="row">
+                  <div class="col-6">
+
+                <div class="card" >
+    <div class="card-body">
+      <div class="media feather-main">
+
+        <div class="media-body align-self-center">
+          <h6 ng-class="tagvalues7">{{values7 }}</h6>
+          <p ng-class="values7">{{tagvalues7}}</p>
+
+        </div>
+      </div>
+
+  </div>
+</div>
+</div>
+
+<div class="col-6">
+
+  <div class="card">
+    <div class="card-body">
+      <div class="media feather-main">
+
+        <div class="media-body align-self-center">
+          <h6 ng-class="tagvalues8">{{values8 }}</h6>
+          <p ng-class="values8">{{tagvalues8}}</p>
+        </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+</div>
+
+            </div>
+            </div>
+			</div>
+
+		</div>
+
+  </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="container-fluid"  style="    background-color: #c3e5f7;">
+  <div class="row">
+<div class="col-sm-12">
+  <div class="card">
+
+    <div class="card-body" style="	    background-color: darkgray;">
+      <div class="table-responsive current-progress">
+        <table class="table table-bordernone" style="background-color: cadetblue;">
+          <tbody>
+            <tr>
+              <td>
+                <div class="d-inline-block align-middle"><img
+                    class="img-radius img-50 align-top m-r-15 rounded-circle"
+                    src="assets/images/user/1.jpg" alt="">
+                  <div class="d-inline-block">
+                    <h6 style="    color: wheat;
+                    font-size: x-large;">Select Line</h6>
+
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect17"  style="    color: wheat;
+                  ">Plant</label>
+                  <select class="form-control input-air-primary digits"
+                      id="exampleFormControlSelect17">
+                      <option>SKF BNG</option>
+
+                  </select>
+
+      </div>
+              </td>
+              <td>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect17" style="    color: wheat;
+                  ">Line</label>
+                  <select class="form-control input-air-primary digits"
+                      id="exampleFormControlSelect17" (change)="changeProject(selectedQuantity)" class="form-control" [(ngModel)]="selectedQuantity"  >
+                      <option *ngFor="let option of options" [value]="option.name" >{{option.name}}</option>
+                    <div class='row' [ngSwitch]="selectedQuantity">
+
+                                        </div>
+
+                  </select>
+
+      </div>
+              </td>
+
+              <td>
+                <button class="btn btn-info btn-lg btn-pill" type="button" placement="top"
+                ngbTooltip="btn btn-info btn-pill">Submit</button>
+
+                </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+
+     <div class="col-xl-12">
+      <div class="card" style="	    background-color: darkgray;">
+        <div class="card-header b-l-primary" >
+          <h5> Line Data</h5>
+        </div>
+        <div class="card-body tab-content">
+
+          <ngb-tabset  *ngFor="let item of livedata"   >
+            <ngb-tab  >
+              <ng-template ngbTabContent class="tab-content">
+                <div class="market-table table-responsive tab-pane active" id="htc">
+                  <table class="table" >
+                    <thead>
+                      <tr style="font-size: xx-large;">
+                        <th scope="col">Property</th>
+                        <th scope="col">Live Data</th>
+                        <th scope="col">Units</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of item.lineparams" >
+                        <td class="    margin-left: 12px;">
+                          <p class="font-primary">{{item.property}}</p>
+                        </td >
+                        <td class="    margin-left: 12px;">
+                          <p class="font-primary">{{item.realtimeval}}</p>
+                        </td>
+                        <td class="    margin-left: 12px;">
+                          <p class="font-primary">{{item.units}}</p>
+
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </ng-template>
+              <ng-template ngbTabTitle class="nav-item nav nav-pills">{{item.name}}</ng-template>
+            </ngb-tab>
+
+            <ngb-tab>
+
+              <ng-template ngbTabContent class="tab-content">
+                <ngb-tabset  *ngFor="let items of item.stages"   >
+                  <ngb-tab  >
+                    <ng-template ngbTabContent class="tab-content">
+                      <div class="market-table table-responsive tab-pane active" id="htc">
+                        <table class="table" >
+                          <thead>
+                            <tr style="font-size: xx-large;" >
+                              <th >Property</th>
+                              <th scope="col">Live Data</th>
+                              <th scope="col">Units</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let item of item.lineparams" >
+                              <td class="    margin-left: 12px;">
+                                <p class="font-primary">{{item.property}}</p>
+                              </td>
+                              <td class="    margin-left: 12px;">
+                                <p class="font-primary">{{item.realtimeval}}</p>
+                              </td>
+                              <td class="    margin-left: 12px;">
+                                <p class="font-primary">{{item.units}}</p>
+
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </ng-template>
+
+                    <ngb-tab>
+
+
+
+                      <ng-template ngbTabTitle class="nav-item nav nav-pills">Stages</ng-template>
+                    </ngb-tab>
+                    <ng-template ngbTabTitle class="nav-item nav nav-pills"> new data {{items.name}}</ng-template>
+                  </ngb-tab>
+                  </ngb-tabset>
+
+
+
+
+              </ng-template>
+
+
+
+
+              <ng-template ngbTabTitle class="nav-item nav nav-pills">Stages</ng-template>
+            </ngb-tab>
+
+            <ngb-tab>
+
+              <ng-template ngbTabContent class="tab-content">
+                <ngb-tabset  *ngFor="let items of machineinline"   >
+                  <ngb-tab  >
+
+                    <ng-template ngbTabContent class="tab-content">
+                      <div class="market-table table-responsive tab-pane active" id="htc">
+                        <table class="table" >
+                          <thead>
+                            <tr style="font-size: xx-large;" >
+                              <th >Property</th>
+                              <th scope="col">Live Data</th>
+                              <th scope="col">Units</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let item of items" >
+                              <td class="    margin-left: 12px;">
+                                <p class="font-primary">{{item.property}}</p>
+                              </td>
+                              <td class="    margin-left: 12px;">
+                                <p class="font-primary">{{item.realtimeval}}</p>
+                              </td>
+                              <td class="    margin-left: 12px;">
+                                <p class="font-primary">{{item.units}}</p>
+
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </ng-template>
+
+                    <ngb-tab>
+
+
+
+                      <ng-template ngbTabTitle class="nav-item nav nav-pills">Machine</ng-template>
+                    </ngb-tab>
+                    <ng-template ngbTabTitle class="nav-item nav nav-pills"> new data {{items.name}}</ng-template>
+                  </ngb-tab>
+                  </ngb-tabset>
+
+
+
+
+              </ng-template>
+
+
+
+
+              <ng-template ngbTabTitle class="nav-item nav nav-pills">Machine</ng-template>
+            </ngb-tab>
+
+
+
+          </ngb-tabset>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</div> -->
+<!-- Container-fluid Ends-->
+
+
+
+<!--
+<div>
+
+  <canvas
+
+    baseChart
+
+    [chartType]="'line'"
+
+    [datasets]="datasets"
+
+    [options]="options">
+
+  </canvas>
+
+</div>
+ -->

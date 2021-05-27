@@ -1,0 +1,213 @@
+<!-- <div class="col-sm-12">
+  <div class="card">
+
+    <div class="card-body">
+      <div class="table-responsive current-progress">
+        <table class="table table-bordernone">
+          <tbody>
+            <tr>
+              <td>
+                <div class="d-inline-block align-middle"><img
+                    class="img-radius img-50 align-top m-r-15 rounded-circle"
+                    src="assets/images/user/1.jpg" alt="">
+                  <div class="d-inline-block">
+                    <h6>Select Machine</h6>
+
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect17">Plant</label>
+                  <select class="form-control input-air-primary digits"
+                      id="exampleFormControlSelect17">
+                      <option>SKF BNG</option>
+
+                  </select>
+
+      </div>
+              </td>
+              <td>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect17">Line</label>
+                  <select class="form-control input-air-primary digits"
+                      id="exampleFormControlSelect17">
+                      <option>CH - 1</option>
+                      <option>CH - 2</option>
+                      <option>CH - 3</option>
+                      <option>CH - 4</option>
+                  </select>
+
+      </div>
+              </td>
+              <td>
+
+
+                      <div class="form-group">
+                          <label >Machine</label>
+                          <select class="form-control input-air-primary digits"
+                              id="exampleFormControlSelect17">
+                              <option>Grrinding Machine</option>
+
+                          </select>
+
+              </div>
+              </td>
+              <td>
+                <button class="btn btn-outline-success" type="button" placement="top"
+                ngbTooltip="btn btn-outline-success">Submit</button>
+
+                </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="col-xl-12">
+  <div class="card" style="margin-top:1%">
+
+    <div class="row">
+      <div class="card-header" style="margin:auto !important">
+
+        <h6>Set the Point and Alarm Message </h6>
+      </div>
+    </div>
+    <div class="row" style="display:flex;margin-top: 1%">
+      <div class="card-bodycol-xl-6 col-md-6 col-sm-6 col-6">
+        <mat-card style="height: 100%; ">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-row">
+              <div class="form-group col-md-6 col-sm-6">
+                <label for="machine">Line</label>
+                <div class="input-group">
+                  <select formControlName="line" (change)="getMachineList($event.target.value)"
+                    class="form-control input-air-primary digits" id="exampleFormControlSelect17">
+                    <option *ngFor="let lines of LinesList" [value]="lines.name">{{lines?.name}}</option>
+                    <!-- <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option> -->
+                  </select>
+                </div>
+              </div>
+              <div class="form-group col-md-6 col-sm-6">
+                <label for="machine">Machine</label>
+                <div class="input-group">
+
+
+                  <!-- <input id="message"   name="mechine"   placeholder = "Your message" class="form-control" ngModel > -->
+                  <select (change)="getProperties($event.target.value)" formControlName="machine" class="form-control">
+                    <!-- <option disabled>Select Machine</option> -->
+                    <!-- <option>Choose Website</option> -->
+                    <option *ngFor="let data of machineList" [value]="data.name">{{data?.name}}</option>
+                  </select>
+
+                </div>
+
+
+              </div>
+              <div class="form-group col-md-6 col-sm-6">
+                <label for="property">Property</label>
+                <select formControlName="property" class="form-control">
+                  <option disabled>Select Property</option>
+                  <!-- <option>Choose Website</option> -->
+                  <option *ngFor="let property of properties" [value]="property.property">{{property?.property}}
+                  </option>
+                </select>
+              </div>
+              <!-- <div class="form-group col-md-6 col-sm-6" style="display:none">
+
+            <label for="description">Select Image</label>
+            <div class="input-group">
+
+              <input #fileinput formControlName="logo" id="fileInput" type="file" placeholder="Icon *"
+                (change)="onFileChanged($event)">
+            </div>
+          </div> -->
+              <div class="form-group col-md-6 col-sm-6">
+                <label for="description">X</label>
+                <div class="input-group">
+
+                  <input  (keyup)="markpoints()" type="number" id="message" name="x" placeholder="x" class="form-control" ngModel>
+                </div>
+              </div>
+
+            </div>
+            <div class="form-row">
+
+              <div class="form-group col-md-6 col-sm-6">
+                <label for="property">Y</label>
+                <div class="input-group">
+
+                  <input (keyup)="markpoints()" id="message" name="y" type="number" placeholder="y" class="form-control" ngModel>
+                </div>
+              </div>
+              <!-- <div class="form-group col-md-6 col-sm-6">
+              <input type="submit" value="Send" data-dismiss="modal" class="btn btn-outline-success">
+
+            </div> -->
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12 col-sm-12">
+              </div>
+
+            </div>
+
+
+            <div class="form-row">
+              <div class="form-group col-md-12 col-sm-12">
+              </div>
+
+            </div>
+            <div class="form-row">
+
+              <div class="form-group col-md-12 col-sm-12">
+              </div>
+            </div>
+            <div class="form-row">
+
+              <div class="form-group col-md-12 col-sm-12">
+              </div>
+            </div>
+            <div class="form-row">
+
+              <div class="form-group col-md-12 col-sm-12">
+              </div>
+            </div>
+            <div class="form-row">
+
+
+              <div class="form-group col-md-12 col-sm-12">
+                <!-- <label for="property">Y</label> -->
+                <input type="submit" value="Send" data-dismiss="modal" [disabled]="contactForm.invalid"
+                  (click)="saveparameters(contactForm.value)" style="float:right" class="btn btn-outline-success">
+
+              </div>
+            </div>
+
+
+
+          </form>
+
+        </mat-card>
+      </div>
+      <div class="col-xl-6 col-md-6 col-sm-6 col-6">
+        <mat-card style="height:100%;background: transparent">
+          <!-- <canvas style="border-radius:6px" id="canvas" width="430" height="370" (click)="getPosition1($event)"
+            [style.background-image]="'url(\'' + imageid+ '\')'">></canvas> -->
+            <canvas class="paths" id="canvas" [style.backgroundImage]="'url(\'' + backgroundImgSrc+ '\')'" (click)="getPosition1($event)">
+            </canvas>
+        </mat-card>
+
+        <!-- </div> -->
+
+      </div>
+    </div>
+
+  </div>
+</div>

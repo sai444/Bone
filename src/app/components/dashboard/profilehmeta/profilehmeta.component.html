@@ -1,0 +1,252 @@
+<div class="col-sm-12">
+    <div class="row" style="width: -webkit-fill-available;    height: 17%; ">
+        <mat-card class="cardStyle">
+            <form [formGroup]="profileForm">
+                <div class="card-body" style="display:flex;padding: 0px;">
+                    <div class="form-group col-md-3 col-sm-3">
+                        <label for="exampleFormControlSelect17">Plant</label>
+                        <select formControlName="plant" class="form-control input-air-primary digits">
+                            <option selected="selected">SKF BNG</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group col-md-3 col-sm-3">
+                        <label for="exampleFormControlSelect17">Line</label>
+                        <select (change)="getMachineList($event.target.value)" formControlName="line"
+                            class="form-control input-air-primary digits">
+                            <option *ngFor="let lines of LinesList" [value]="lines.name">{{lines?.name}}</option>
+
+                        </select>
+
+                    </div>
+                    <div class="form-group col-md-3 col-sm-3">
+                        <label for="exampleFormControlSelect17">Machine</label>
+
+                        <select (change)="machinename($event.target.value)"
+                            class="form-control input-air-primary digits" formControlName="machine">
+                            <option *ngFor="let data of machineList" [value]="data.name">{{data?.name}}</option>
+
+                        </select>
+
+                    </div>
+                    <div class="col-md-2 col-sm-1">
+                        <button class="btn btn-outline-success" type="button" placement="center" (click)="submitbtn()"
+                            style="margin:auto;margin-top:23%">Submit</button>
+                    </div>
+                    <div class="col-md-1 col-sm-1" style="cursor:pointer">
+                        <!-- <app-feather-icons  class="feathericon" (click)="routeBack()" [icon]="arrow-left-circle"></app-feather-icons> -->
+                        <i class="fa fa-sign-out" (click)="routeBack()" placement="right" ngbTooltip="Back"
+                            style="    font-size: 22px; color: orangered;cursor: pointer;"></i>
+                        <!-- <i class="fal fa-sign-out"></i> <i class="fal fa-sign-in-alt"></i>     -->
+                    </div>
+                </div>
+            </form>
+
+        </mat-card>
+
+    </div>
+</div>
+<div class="container-fluid">
+    <div>
+        <div class="main-body">
+
+            <!-- Breadcrumb -->
+
+            <!-- /Breadcrumb -->
+
+            <div class="row gutters-sm">
+                <div class="col-md-5 col-sm-12 col-xs-12 col-5" style="height:86%">
+                    <mat-card class="canvasCard">
+
+                        <canvas class="paths" id="canvas" [style.backgroundImage]="'url(\'' + backgroundImgSrc+ '\')'"
+                            (click)="getPosition1($event)">
+                        </canvas>
+                    </mat-card>
+
+                    <div class="card " style="display: grid;box-shadow: 0px 0px 1px 1px #4395ab;margin-top: 3%">
+                        <mat-card style="padding: 0px;">
+                            <!-- <ul class="list-group list-group-flush"> -->
+                            <div class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
+                                style="background: #43a5bdd9 ;padding: 9px">
+                                <div class="mb-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                        </path>
+                                    </svg>Machine Name
+                                </div>
+                                <span *ngIf="profileData" class="text-secondary"
+                                    style="color: #fff923 !important;">{{profileData[0]?.Machine}}</span>
+                            </div>
+                            <div style="background: #43a5bdd9 ;padding: 9px;"
+                                class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <div class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-github mr-2 icon-inline">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                        </path>
+                                    </svg>Machine Code</div>
+                                <span *ngIf="profileData" class="text-secondary"
+                                    style="color: #fff923 !important;">{{profileData[0]?.Machine_Code}}</span>
+                            </div>
+
+                            <div style="background: #43a5bdd9 ;padding: 9px;"
+                                class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <div class="mb-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="feather feather-instagram mr-2 icon-inline text-danger">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path
+                                            d="M18.121,9.88l-7.832-7.836c-0.155-0.158-0.428-0.155-0.584,0L1.842,9.913c-0.262,0.263-0.073,0.705,0.292,0.705h2.069v7.042c0,0.227,0.187,0.414,0.414,0.414h3.725c0.228,0,0.414-0.188,0.414-0.414v-3.313h2.483v3.313c0,0.227,0.187,0.414,0.413,0.414h3.726c0.229,0,0.414-0.188,0.414-0.414v-7.042h2.068h0.004C18.331,10.617,18.389,10.146,18.121,9.88 M14.963,17.245h-2.896v-3.313c0-0.229-0.186-0.415-0.414-0.415H8.342c-0.228,0-0.414,0.187-0.414,0.415v3.313H5.032v-6.628h9.931V17.245z M3.133,9.79l6.864-6.868l6.867,6.868H3.133z">
+                                        </path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>Line
+                                </div>
+                                <span *ngIf="profileData" class="text-secondary"
+                                    style="color: #fff923 !important;">{{profileData[0]?.Machine_Line}}</span>
+                            </div>
+                            <div style="background: #43a5bdd9 ;padding: 9px"
+                                class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <div class="mb-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="feather feather-instagram mr-2 icon-inline text-danger">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path
+                                            d="M18.121,9.88l-7.832-7.836c-0.155-0.158-0.428-0.155-0.584,0L1.842,9.913c-0.262,0.263-0.073,0.705,0.292,0.705h2.069v7.042c0,0.227,0.187,0.414,0.414,0.414h3.725c0.228,0,0.414-0.188,0.414-0.414v-3.313h2.483v3.313c0,0.227,0.187,0.414,0.413,0.414h3.726c0.229,0,0.414-0.188,0.414-0.414v-7.042h2.068h0.004C18.331,10.617,18.389,10.146,18.121,9.88 M14.963,17.245h-2.896v-3.313c0-0.229-0.186-0.415-0.414-0.415H8.342c-0.228,0-0.414,0.187-0.414,0.415v3.313H5.032v-6.628h9.931V17.245z M3.133,9.79l6.864-6.868l6.867,6.868H3.133z">
+                                        </path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>Plant
+                                </div>
+                                <span *ngIf="profileData" class="text-secondary" style="color: #fff923 !important;">SKF
+                                    BNG</span>
+                            </div>
+
+                        </mat-card>
+
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="card mb-3">
+                        <div style="display:flex;margin: auto">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" (click)="changeTableData('High','red')" type="radio"
+                                    name="inlineRadioOptions" id="inlineRadio1" checked value="option1">
+                                <label class="form-check-label" style="color:red" for="inlineRadio1">Alert</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    (click)="changeTableData('Low','yellow')" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" style="color:yellow" for="inlineRadio2">Adequate</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    (click)="changeTableData('Normal','green')" id="inlineRadio3" value="option3">
+                                <label class="form-check-label" style="color:greenyellow"
+                                    for="inlineRadio3">Reliable</label>
+                            </div>
+                        </div>
+
+                        <div class="card-body" style="height:353px;overflow:auto  ;margin-top: -2px;">
+
+                            <div class="table-section">
+
+                                <table class="table custom-table">
+                                    <thead class="thead-light ">
+                                        <tr style="text-align:left ; ">
+                                            <th scope="col">Parameter</th>
+                                            <th scope="col">T_Value</th>
+                                            <th scope="col">R_Value</th>
+
+                                            <th scope="col">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of parameterList" style="text-align:left">
+                                            <td scope="row">{{data?.Property}}</td>
+                                            <td>{{data?.Treshold_value}}</td>
+
+                                            <td>{{data?.Value}}</td>
+                                            <td>
+                                                <div *ngIf="status == 'High'" style="margin-left:44%"
+                                                    [ngClass]="communication === true ? 'red' : 'red'"></div>
+                                                <div *ngIf="status == 'Low'" style="margin-left:44%"
+                                                    [ngClass]="communication === true ? 'yellow' : 'red'"></div>
+                                                <div *ngIf="status == 'Normal'" style="margin-left:44%"
+                                                    [ngClass]="communication === true ? 'green' : 'red'"></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row gutters-sm">
+                        <div class="col-sm-6 mb-3" style="    height:203px; ">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3"
+                                        style="background: #2f3c4e;height: 2px;">
+                                        <i class="material-icons text-info mr-2">assignment</i>Health Status
+                                    </div>
+                                    <div style="display: block;" class="graphdiv">
+                                        <canvas baseChart height="100"
+                                            *ngIf="pieChartData[0] !=0 || pieChartData[1] !=0 || pieChartData[2] !=0"
+                                            [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+                                            [options]="pieChartOptions" [colors]="chartColors1"
+                                            [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+                                        </canvas>
+                                        <canvas height="100"
+                                            *ngIf="pieChartData[0] ==0 && pieChartData[1] ==0 && pieChartData[2] ===0"
+                                            baseChart [data]="pieChartDataNull" [labels]="pieChartLabelsNull"
+                                            [chartType]="pieChartType" [options]="pieChartOptionsNull"
+                                            [colors]="chartColorsNull" [plugins]="pieChartPlugins"
+                                            [legend]="pieChartLegend">
+                                        </canvas>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3" style="    height:203px;  ">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3"
+                                        style="background: #2f3c4e; height: 2px;"><i
+                                            class="material-icons text-info mr-2">assignment</i>Vibration Status</div>
+                                    <div style="display: block;" class="graphdiv">
+                                        <canvas [colors]="chartColors1" baseChart [data]="pieChartData2" height="100"
+                                            *ngIf="pieChartData2[0] !=0 || pieChartData2[1] !=0 || pieChartData2[2] !=0"
+                                            [labels]="pieChartLabels2" [chartType]="pieChartType2"
+                                            [options]="pieChartOptions2" [plugins]="pieChartPlugins2"
+                                            [legend]="pieChartLegend2">
+                                        </canvas>
+                                        <canvas
+                                            *ngIf="pieChartData2[0] ==0 && pieChartData2[1] ==0 && pieChartData2[2] ===0"
+                                            baseChart [data]="pieChartDataNull" [labels]="pieChartLabelsNull" height="100"
+                                            [chartType]="pieChartType" [options]="pieChartOptionsNull"
+                                            [colors]="chartColorsNull" [plugins]="pieChartPlugins"
+                                            [legend]="pieChartLegend">
+                                        </canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->

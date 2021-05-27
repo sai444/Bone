@@ -1,0 +1,303 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid"  style="    background-color: #c3e5f7;">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <!-- <div class="card-header">
+          <h5>Current Progress</h5>
+        </div> -->
+        <div class="card-body">
+          <div class="table-responsive current-progress">
+            <table class="table table-bordernone">
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="d-inline-block align-middle"><img
+                        class="img-radius img-50 align-top m-r-15 rounded-circle"
+                        src="assets/images/user/1.jpg" alt="">
+                      <div class="d-inline-block">
+                        <h6>Select Plant</h6>
+                        <!-- <p>Design & development</p> -->
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect17">Plant</label>
+                      <select class="form-control input-air-primary digits"
+                          id="exampleFormControlSelect17">
+                          <option>SKF BNG</option>
+                          <!-- <option>PUNE</option> -->
+
+                      </select>
+
+          </div>
+                  </td>
+
+
+                  <td>
+                    <button class="btn btn-outline-success" type="button" placement="top"
+                    ngbTooltip="btn btn-outline-success">Submit</button>
+
+                    </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-xl-4 xl-50" *ngFor="let presentation of livedata" >
+      <div class="card">
+        <div class="default-according style-1 bitcoin-accordion" id="accordionoc">
+          <ngb-accordion [closeOthers]="true" activeIds="static-1">
+            <ngb-panel id="static-1">
+              <ng-template ngbPanelTitle>
+                <div class="card-header bg-primary">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link txt-white p-0">  {{presentation.name}}
+                      <td class="blink_me">
+                        <span class ="dot" [ngClass]="{
+                          'dot-red' : cell == 'Busy',
+                          'dot-green' : cell == 'Idle',
+                          'dot-yellow' : cell == 'overload'}"></span> </td>
+
+
+                    </button>
+
+                  </h5>
+
+
+                </div>
+
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="collapse p-0" id="collapse" [ngbCollapse]="isBTC">
+
+
+                  <div class="card">
+                    <div class="col-xl-12 xl-100">
+                      <div class="card">
+                        <div class="card-header">
+                          <h5>Line</h5>
+
+                        </div>
+                        <div class="card-body">
+                          <div >
+                            <table  id="customers">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Name</th>
+                                  <th scope="col">Parameter</th>
+                                  <th scope="col">Live Data</th>
+                                  <th scope="col">Units</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of presentation.lineparams" >
+                                  <td >{{item.name}}</td>
+                                  <td >{{item.property}}</td>
+                                  <td >{{item.realtimeval}}</td>
+                                  <td >{{item.units}}</td>
+
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="media-accordion">
+
+                    <div class="media">
+
+
+
+                      <div class="col-sm-6 xl-4">
+                        <div class="show-value-top d-flex">
+                          <div class="value-left d-inline-block">
+                            <div class="square bg-primary d-inline-block"></div><span>Closed Issues</span>
+                          </div>
+                          <div class="value-right d-inline-block">
+                            <div class="square d-inline-block bg-secondary"></div><span>Issues</span>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="col-xl-12">
+                      <div class="card">
+                        <div class="card-header project-header">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <!-- <h5>Main </h5> -->
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+                    <div>
+                      <!-- <div style="display: block">
+                        <canvas baseChart
+                                [datasets]="barChartData1"
+                                [labels]="barChartLabels1"
+                                [options]="barChartOptions1"
+                                [legend]="barChartLegend1"
+                                [chartType]="barChartType1">
+                        </canvas>
+                      </div> -->
+                    </div>
+
+                      </div>
+                    </div>
+
+
+
+                  </div>
+<!--
+                  <div class="card">
+
+                    <table class="primary" >
+                      <thead >
+                        <tr>
+
+                          <th scope="col">Name</th>
+                          <th scope="col">Property</th>
+                          <th scope="col">Live Data</th>
+                          <th scope="col">Units</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of presentation.stages.stageparams" >
+                          <th scope="row">{{item.name}}</th>
+                          <th scope="row">{{item.property}}</th>
+                          <td colspan="2">{{item.realtimeval}}</td>
+                          <td colspan="2">{{item.units}}</td>
+
+                        </tr>
+                      </tbody>
+
+
+                    </table>
+
+
+
+
+                  </div> -->
+                  <div class="container-fluid">
+
+                  <div class="card">
+                    <div class="col-xl-12 xl-100"  *ngFor="let items of presentation.stages">
+                      <div class="card">
+                        <div class="card-header">
+
+                          <h5 ><i class="icofont icofont-ui-card"></i>{{items.name}}</h5>
+
+
+                        </div>
+
+                        <div class="card-body">
+                          <div>
+                            <table  id="customers">
+                              <thead>
+                                <tr>
+                                  <th >Name</th>
+                                  <th >Parameter</th>
+                                  <th >Live Data</th>
+                                  <th >Units</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr  *ngFor="let itemt of items.stageparams" >
+                                  <td >{{itemt.property}}</td>
+                                  <td >{{itemt.name}}</td>
+                                  <td >{{itemt.realtimeval}}</td>
+                                  <td >{{itemt.units}}</td>
+
+                                </tr>
+
+
+                              </tbody>
+                            </table>
+                          </div>
+
+                        </div>
+                        <div class="card">
+
+                           <div class="col-xl-12 xl-100"  *ngFor="let itemm of items.machine">
+                            <div class="col-xl-12 xl-100"  >
+                            <div class="card">
+                              <div class="card-header">
+
+                                <!-- <h5 ><i class="icofont icofont-ui-card"> {{itemm.machinenames}}</i></h5> -->
+
+
+                               </div>
+                               <div class="card-body">
+                                <div>
+                                  <table  id="customers1">
+                                    <thead>
+                                      <tr>
+                                        <th >Machine Name</th>
+                                        <th >Parameter</th>
+                                        <th >Live Data</th>
+                                        <th >Units</th>
+
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr   *ngFor="let itemms of itemm" >
+                                        <td >{{itemms.name}}</td>
+                                        <td >{{itemms.property}}</td>
+                                        <td >{{itemms.realtimeval}}</td>
+                                        <td >{{itemms.units}}</td>
+
+                                      </tr>
+
+
+                                    </tbody>
+                                  </table>
+                                </div>
+
+                              </div>
+                             </div>
+                               </div>
+                            </div>
+
+                               </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+
+
+
+
+          </ngb-accordion>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>
+<!-- Container-fluid Ends-->

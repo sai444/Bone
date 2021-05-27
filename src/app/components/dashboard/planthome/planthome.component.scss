@@ -1,0 +1,29 @@
+.cardStyle{
+    width: 100%;
+    height: -webkit-fill-available;
+    background: white;
+    margin: auto;
+    padding: inherit;
+    margin-top: 1%;
+  }
+  .ecommerce-widget{
+    background: bottom !important;
+    box-shadow: 0px 0px 1px 1px #00000033 !important;
+}
+  
+h3, .h3 {
+    font-size: x-large !important;
+}
+.ecommerce-widget span {
+    /* color: #ffffffd9 !important; */
+    margin: 0;
+    height: 32vh;
+
+    font-size: 12px !important;
+}
+.bg-secondary {
+    background-color: #ff2209bf !important;
+}
+.bg-info {
+    background-color: #6eb508 !important;
+}

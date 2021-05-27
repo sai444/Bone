@@ -1,0 +1,93 @@
+<div class="row">
+  <div class="col col-lg-2" >
+    <div style="display: block;" class="chart" style="    margin: 20px;
+   height: 250px;
+    width: 800px">
+      <canvas baseChart width="40" height="13"
+
+              [datasets]="labelMFL2"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+
+
+</div>
+<div class="col-xsm" >
+
+  <div class="row align-items-end" style="    margin: 3px;">
+
+    <div class="card1" style="height: auto;">
+      <span></span>
+      <div class="content1">
+        <p  style="font-size: 10px;"   style="font-size: 10px;"  ng-class="tagvalues1">{{tagvalues1}}</p>
+                  <h6 ng-class="values3">{{values1}}</h6>
+
+      </div>
+    </div>
+    <div class="card1" style="height: auto;">
+      <span></span>
+      <div class="content1">
+        <p  style="font-size: 10px;"  ng-class="tagvalues2">{{tagvalues2}}</p>
+        <h6 ng-class="values4">{{values2}}</h6>
+
+      </div>
+    </div>
+    <div class="card1" style="height: auto;">
+      <span></span>
+      <div class="content1">
+        <p  style="font-size: 10px;"  ng-class="tagvalues3">{{tagvalues3}}</p>
+        <h6 ng-class="values2">{{values3}}</h6>
+
+      </div>
+
+    </div>
+    <div class="card1" style="height: auto;">
+      <span></span>
+      <div class="content1">
+        <p  style="font-size: 10px;"  ng-class="tagvalues4">{{tagvalues4}}</p>
+                  <h6 ng-class="values3">{{values4}}</h6>
+
+      </div>
+    </div>
+    <div class="card1" style="height: auto;">
+      <span></span>
+      <div class="content1">
+        <p  style="font-size: 10px;"  ng-class="tagvalues5">{{tagvalues5}}</p>
+        <h6 ng-class="values4">{{values5}}</h6>
+
+      </div>
+    </div>
+    <div class="card1" style="height: auto;">
+      <span></span>
+      <div class="content1">
+        <p  style="font-size: 10px;"  ng-class="tagvalues6">{{tagvalues6}}</p>
+        <h6 ng-class="values2">{{values6}}</h6>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+</div>
+<!-- <div class="row">
+  <div class="col-md-4" style="margin-bottom: 10px">
+    <table class="table table-responsive table-condensed">
+      <tr>
+        <th *ngFor="let label of labelMFL">{{label}}</th>
+      </tr>
+      <tr *ngFor="let d of lineChartData">
+        <td *ngFor="let label of labelMFL; let j=index">{{d && d.data[j]}}</td>
+      </tr>
+    </table>
+
+  </div>
+</div> -->

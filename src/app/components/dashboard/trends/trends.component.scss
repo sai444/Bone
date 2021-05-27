@@ -1,0 +1,28 @@
+.cardStyle{
+  width: 95%;
+  // height: 17vh;
+  background: white;
+  margin: auto;
+  margin-top: 1%;
+}
+.propertyCard{
+    height: 6vh;
+    margin: auto;
+    border: 0.5px solid #0f58d6;
+    color: white;
+    background: #0f58d6;  
+      width: 95%;
+    // width: fit-content;
+    // color: #212529;
+    // margin-bottom: 30px !important;
+    margin-top: 1%;
+    // background: var(--primary);
+}
+.graphCard{
+    width: 95%;
+    margin: auto;
+}
+.form-group {
+  margin-bottom: 0;
+  font-size: small;
+}

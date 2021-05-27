@@ -1,0 +1,122 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid search-page">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <form class="search-form">
+            <div class="form-group m-0">
+              <input class="form-control-plaintext" type="search" placeholder="Search..">
+            </div>
+          </form>
+        </div>
+        <div class="card-body" id="search-custom">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="nav nav-tabs nav-material" id="top-tab" role="tablist">
+                <ngb-tabset id="tabset">
+
+                  <ngb-tab>
+                    <ng-template ngbTabTitle class="nav-item"><i class="icon-image"></i>Images </ng-template>
+                    <ng-template ngbTabContent class="tab-content">
+                      <div class="tab-pane fade show" id="image-links" role="tabpanel" aria-labelledby="image-link">
+                        <div class="info-block m-t-30">
+                          <p class="pb-4 col-sm-12 digits">About 12,120 results (0.50 seconds)</p>
+                          <app-image-gallery></app-image-gallery>
+                        </div>
+                        <div class="info-block m-t-30">
+                          <nav aria-label="...">
+                            <ul class="pagination pagination-primary">
+                              <li class="page-item disabled"><a class="page-link"  href="javascript:void(0)" tabindex="-1">Previous</a>
+                              </li>
+                              <li class="page-item"><a class="page-link"  href="javascript:void(0)">1</a></li>
+                              <li class="page-item active"><a class="page-link"  href="javascript:void(0)">2 <span
+                                    class="sr-only">(current)</span></a></li>
+                              <li class="page-item"><a class="page-link"  href="javascript:void(0)">3</a></li>
+                              <li class="page-item"><a class="page-link"  href="javascript:void(0)">Next</a></li>
+                            </ul>
+                          </nav>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                  <ngb-tab>
+                    <ng-template ngbTabTitle class="nav-item"><i class="icon-video-clapper"></i>Videos </ng-template>
+                    <ng-template ngbTabContent class="tab-content">
+                      <div class="tab-pane fade show" id="video-links" role="tabpanel" aria-labelledby="video-link">
+                        <div class="row">
+                          <div class="col-xl-6">
+                            <p class="pb-4">About 6,000 results (0.60 seconds)</p>
+                            <div class="media info-block">
+                              <iframe class="mr-3 mb-3" width="200" height="100"
+                                src="https://www.youtube.com/watch?v=84RgALc8XAk"></iframe>
+                              <div class="media-body">
+                                <h6>SPG 2</h6><a
+                                  href="">ref.info</a>
+                                <p>Reff</p>
+                                <div class="star-ratings">
+                                  <ul class="search-info">
+                                    <li>2.5 stars</li>
+                                    <li>590 votes</li>
+                                    <li>Music</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="media info-block">
+                              <iframe class="mr-3 mb-3" width="200" height="100"
+                                src="https://youtu.be/FjEnv3KJU70"></iframe>
+                              <div class="media-body">
+                                <h6>SPG 1</h6><a
+                                  href="">ref.info</a>
+                                <p>Reff</p>
+                                <div class="star-ratings">
+                                  <ul class="search-info">
+                                    <li>2.5 stars</li>
+                                    <li>590 votes</li>
+                                    <li>Music</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="info-block">
+                              <nav aria-label="...">
+                                <ul class="pagination pagination-primary">
+                                  <li class="page-item disabled"><a class="page-link"  href="javascript:void(0)"
+                                      tabindex="-1">Previous</a></li>
+                                  <li class="page-item"><a class="page-link"  href="javascript:void(0)">1</a></li>
+                                  <li class="page-item active"><a class="page-link"  href="javascript:void(0)">2 <span
+                                        class="sr-only">(current)</span></a></li>
+                                  <li class="page-item"><a class="page-link"  href="javascript:void(0)">3</a></li>
+                                  <li class="page-item"><a class="page-link"  href="javascript:void(0)">Next</a></li>
+                                </ul>
+                              </nav>
+                            </div>
+                          </div>
+                          <div class="col-xl-6">
+                            <div>
+                              <div class="embed-responsive embed-responsive-21by9 lg-mt">
+                                <iframe width="560" height="315" src="https://youtu.be/fg3JgF9TMXs"
+                                  allowfullscreen=""></iframe>
+                              </div>
+                              <div class="embed-responsive embed-responsive-21by9">
+                                <iframe width="560" height="315" src="https://youtu.be/3o4Aoq4ezec"
+                                  allowfullscreen=""></iframe>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Container-fluid Ends-->

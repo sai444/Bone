@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.container{
+  margin-top:5%;
+}
+
+.border{
+  padding: 10px;
+}
+.btn{
+  margin-right: 10px;
+}
+.fa {
+  margin-right: 10px;
+}
+table .btn{
+  margin: 2px;
+}
+page-body .ng-tns-c114-0{
+background-color: aliceblue;
+
+}
+
+
+.font-primary{
+  font-size: x-large;
+
+}
+table .th{
+
+  font-size: x-large;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000a6;
+
+}
+body.dark-only .page-wrapper .page-body-wrapper .page-body .form-control {
+  background-color: #acd8ef85 !important;
+  color: #0729b7 !important;
+  border: 1px solid #d2d6d8 !important;
+}
+.page-wrapper .page-body-wrapper.sidebar-icon .page-sidebar .sidebar-menu > li.active a i, .page-wrapper .page-body-wrapper.sidebar-icon .page-sidebar .sidebar-menu > li.active a span {
+  color: #ffc107 !important;
+  transition: 0.3s;
+}
+.page-wrapper .page-body-wrapper.sidebar-icon .page-sidebar .sidebar-menu > li.hover a i, .page-wrapper .page-body-wrapper.sidebar-icon .page-sidebar .sidebar-menu > li.hover a span {
+  color: #ffc107 !important;
+  transition: 0.3s;
+}
+
+.page-main-header .main-header-right .nav-right .profile-dropdown li:hover a svg {
+color: #ffc107 !important; }
+.page-main-header .main-header-right .nav-right .profile-dropdown li:hover a svg path, .page-main-header .main-header-right .nav-right .profile-dropdown li:hover a svg line {
+    color: #ffc107 !important; }
+.page-wrapper .page-body-wrapper.sidebar-icon .page-sidebar .sidebar-menu > li.active a svg rect, .page-wrapper .page-body-wrapper.sidebar-icon .page-sidebar .sidebar-menu > li.active a svg line, .page-wrapper .page-body-wrapper.sidebar-icon .page-sidebar .sidebar-menu > li.active a svg path, .page-wrapper .page-body-wrapper.sidebar-icon .page-sidebar .sidebar-menu > li.active a svg circle, .page-wrapper .page-body-wrapper.sidebar-icon .page-sidebar .sidebar-menu > li.active a svg polygon, .page-wrapper .page-body-wrapper.sidebar-icon .page-sidebar .sidebar-menu > li.active a svg polyline {
+    color: #ffc107 !important;
+  }
+  body.dark-only .page-wrapper .page-body-wrapper .page-body {
+    background-color: #e3e4e4 !important;
+}
+
+svg {
+  color: white !important;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.owl-item {
+  // width: 550px !important;
+  color: red;
+  /* background: azure; */
+}
+.input-group > .form-control, .input-group > .form-control-plaintext, .input-group > .custom-select, .input-group > .custom-file {
+  position: relative;
+  flex: 1 1 auto;
+  background-color: #acd8ef85;
+  color: #0729b7;
+  border: 1px solid #d2d6d8;
+  width: 1%;
+  min-width: 0;
+  margin-bottom: 0;
+}

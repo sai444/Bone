@@ -1,0 +1,119 @@
+.modal-content{
+
+  width: 930px;
+
+}
+.newdev{
+  width: 930px;
+}
+.body.dark-body-only .modal-content {
+  width: 930px;
+
+}
+
+
+.body.dark-only .modal-content {
+  background-color: #2f3c4e;
+  width: 930px;
+}
+.paths{
+  height: 366px;
+  // border-radius: 26px;
+  background: lightgray;
+  width: 100%;
+  margin: 0px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: black !important; 
+}
+.input-group > .form-control, .input-group > .form-control-plaintext, .input-group > .custom-select, .input-group > .custom-file {
+  position: relative;
+  flex: 1 1 auto;
+  background-color: #acd8ef85;
+  color: #0729b7;
+  border: 1px solid #d2d6d8;
+  width: 1%;
+  min-width: 0;
+  margin-bottom: 0;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #0729b7 !important;
+  background-color: #acd8ef85 !important;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.Tabcolor1{
+  background-color: #6bc3b9 !important;
+
+}
+.Tabcolor2{
+  background-color:  #6055a9 !important;
+  // background-color: #6055a9;
+
+}
+.Tabcolor3{
+  background-color: #6ba252 !important;
+
+}
+.Tabcolor4{
+  background-color: #ff9f40 !important;
+
+}
+.selectedCard{
+  background-color: #0137bf !important;
+  box-shadow: 0px 1px 2px 3px #0137bf !important;
+}
+.todays{
+  background-color: #6bc3b9 !important;
+}
+.active{
+  background-color: #6055a9 !important;
+}
+.open{
+  background-color: #6ba252 !important;
+}
+.close{
+  background-color: #ff9f40 !important;
+}
+@keyframes beat {
+  0% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  100% {
+    -webkit-transform: scale(0.8,0.8);
+            transform: scale(0.8, 0.8);
+  }
+}
+.className {
+
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+.className:focus {
+  -webkit-animation: beat 1s ease-in-out backwards;
+          animation: beat 1s ease-in-out backwards;
+}
+.className:active {
+  -webkit-animation: none;
+          animation: none;
+}
+body {
+  text-align: center;
+} 
+.project-widgets {
+  margin-top: 9px;
+}
